@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'WindowAlert_Example' do
+  pod 'WindowAlert', :path => '../'
+
+  target 'WindowAlert_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
