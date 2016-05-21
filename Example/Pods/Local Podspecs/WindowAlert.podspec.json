@@ -1,0 +1,19 @@
+{
+  "name": "WindowAlert",
+  "version": "0.1.0",
+  "summary": "A short description of WindowAlert.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/WindowAlert",
+  "license": "MIT",
+  "authors": {
+    "Alexander": "wryyy906@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/WindowAlert.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "WindowAlert/Classes/**/*"
+}

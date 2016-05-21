@@ -1,0 +1,6 @@
+framework module WindowAlert {
+  umbrella header "WindowAlert-umbrella.h"
+
+  export *
+  module * { export * }
+}

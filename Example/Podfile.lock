@@ -1,0 +1,16 @@
+PODS:
+  - WindowAlert (0.1.0)
+
+DEPENDENCIES:
+  - WindowAlert (from `../`)
+
+EXTERNAL SOURCES:
+  WindowAlert:
+    :path: ../
+
+SPEC CHECKSUMS:
+  WindowAlert: a7b40314576097deca2fd81541998be7c5722a5c
+
+PODFILE CHECKSUM: 3547619fe8174be5530c9e93fb5eb31f0964b7e0
+
+COCOAPODS: 1.0.0.beta.8

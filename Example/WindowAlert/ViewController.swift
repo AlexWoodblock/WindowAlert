@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WindowAlert
 
 class ViewController: UIViewController {
 
