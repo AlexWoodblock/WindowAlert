@@ -225,10 +225,6 @@ public class WindowAlert {
         }
     }
     
-    deinit {
-        print("Deiniting WindowAlert")
-    }
-    
     /**
      Add new window to window hieararchy at set window level, and present UIAlertController
      on top of invisible root view controller attached to this new window.
