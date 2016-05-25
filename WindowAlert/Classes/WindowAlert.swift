@@ -256,10 +256,6 @@ public class WindowAlert {
         }
     }
     
-    deinit {
-        print("Deiniting...")
-    }
-    
     private func createAlertController() {
         alertController = UIAlertController(title: storedTitle, message: storedMessage, preferredStyle: storedPreferredStyle)
         
