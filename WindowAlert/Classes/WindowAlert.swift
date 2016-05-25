@@ -82,6 +82,12 @@ public class WindowAlert {
     public var windowLevel = WindowAlert.defaultWindowLevel
     
     /**
+     Set this value to true if you want WindowAlert to be closed when user taps outside of UIAlertController.
+     This is disabled by default as it goes against default behavior of UIAlertController, but can be useful if you want to display dismissable UIAlertController without buttons.
+     */
+    public var closeOnTapOutside = false
+    
+    /**
      The actions that user can invoke for this WindowAlert.
      */
     public private(set) var actions: [WindowAlertAction]
@@ -158,7 +164,29 @@ public class WindowAlert {
     private var internalWindow: UIWindow?
     private var alertController: UIAlertController?
     private let rootViewController = UIViewController()
-    private weak var referenceWindow: UIWindow?
+    
+    private var internalWindowTintColor: UIColor
+    private var internalWindowFrame: CGRect
+    
+    /**
+     Creates and returns new alert with specified title, message, style, tint color and window size.
+     - parameter title: Title for the alert.
+     - parameter message: Message for the alert.
+     - parameter preferredStyle: Preferred style for the alert.
+     - parameter tintColor: Tint color for alert.
+     - parameter frame: Size and position of window that contains alert controller. In most cases it should be the same as screen frame or main application window frame.
+     - returns: New WindowAlert object.
+     */
+    public init(title: String, message: String, preferredStyle: UIAlertControllerStyle, tintColor: UIColor, frame: CGRect) {
+        actions = []
+        textFieldConfigurationHandlers = []
+        
+        storedPreferredStyle = preferredStyle
+        storedTitle = title
+        storedMessage = message
+        internalWindowFrame = frame
+        internalWindowTintColor = tintColor
+    }
     
     /**
      Creates and returns new alert with specified title, message, style and reference window.
@@ -168,14 +196,8 @@ public class WindowAlert {
      - parameter referenceWindow: Window to inherit size and tint color from.
      - returns: New WindowAlert object.
      */
-    public init(title: String, message: String, preferredStyle: UIAlertControllerStyle, referenceWindow: UIWindow) {
-        self.referenceWindow = referenceWindow
-        actions = []
-        textFieldConfigurationHandlers = []
-        
-        storedPreferredStyle = preferredStyle
-        storedTitle = title
-        storedMessage = message
+    public convenience init(title: String, message: String, preferredStyle: UIAlertControllerStyle, referenceWindow: UIWindow) {
+        self.init(title: title, message: message, preferredStyle: preferredStyle, tintColor: referenceWindow.tintColor, frame: referenceWindow.frame)
     }
     
     /**
@@ -202,14 +224,11 @@ public class WindowAlert {
         self.init(title: title, message: message, preferredStyle: preferredStyle, referenceWindow: window)
     }
     
-    private func createNewWindowFromReferenceWindow() {
-        //if reference window is present, we create window with same dimensions and tint color
-        if let window = referenceWindow {
-            internalWindow = UIWindow(frame: window.bounds)
-            internalWindow?.tintColor = window.tintColor
-            internalWindow?.windowLevel = windowLevel
-            internalWindow?.rootViewController = rootViewController
-        }
+    private func createNewWindow() {
+        internalWindow = UIWindow(frame: internalWindowFrame)
+        internalWindow?.tintColor = internalWindowTintColor
+        internalWindow?.windowLevel = windowLevel
+        internalWindow?.rootViewController = rootViewController
     }
     
     private func createAlertController() {
@@ -235,19 +254,14 @@ public class WindowAlert {
             return false
         }
         
-        createNewWindowFromReferenceWindow()
-        
-        guard let window = internalWindow else {
-            //this will only fail if reference window is missing
-            return false
-        }
-        
+        createNewWindow()
         createAlertController()
         
         //at this point alertController is not nil thanks to ensureAlertController(), so it's safe to unwrap alertController
         //it's also safe to unwrap rootViewController, thanks to ensureWindowIfPossible()
-        window.makeKeyAndVisible()
-        window.rootViewController!.presentViewController(alertController!, animated: true, completion: nil)
+        //and it's also safe to unwrap internalWindow, since createNewWindow() takes care of it's creation
+        internalWindow!.makeKeyAndVisible()
+        internalWindow!.rootViewController!.presentViewController(alertController!, animated: true, completion: nil)
         
         return true
     }
