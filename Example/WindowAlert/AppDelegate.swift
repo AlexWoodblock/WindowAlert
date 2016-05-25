@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         //let's change default window level for WindowAlert just to demo it
-        
+        WindowAlert.defaultWindowLevel = UIWindowLevelStatusBar
         
         return true
     }

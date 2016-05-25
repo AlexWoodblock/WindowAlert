@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5753FDE39ACDE87F4D5BF8FD /* Pods_WindowAlert_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 342054CD18CE7BE2354318C4 /* Pods_WindowAlert_Tests.framework */; };
+		1F3BAE2D1CF02DF800E665FA /* WindowAlertActionPreferencesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3BAE2C1CF02DF800E665FA /* WindowAlertActionPreferencesTableViewCell.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -16,20 +16,10 @@
 		C00799780A175BBB816F181B /* Pods_WindowAlert_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6717BD2B760814ABF304AA62 /* Pods_WindowAlert_Example.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
-			remoteInfo = WindowAlert;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		13B32734EB87BC33D5A0111A /* Pods-WindowAlert_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WindowAlert_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-WindowAlert_Example/Pods-WindowAlert_Example.release.xcconfig"; sourceTree = "<group>"; };
-		153E0A7ABDCB59242713F540 /* Pods-WindowAlert_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WindowAlert_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WindowAlert_Tests/Pods-WindowAlert_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1A1B12FDF79C8BD923EE9C0C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1F3BAE2C1CF02DF800E665FA /* WindowAlertActionPreferencesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowAlertActionPreferencesTableViewCell.swift; sourceTree = "<group>"; };
 		342054CD18CE7BE2354318C4 /* Pods_WindowAlert_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WindowAlert_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B39B74C1D3396DC6788B002 /* WindowAlert.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = WindowAlert.podspec; path = ../WindowAlert.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* WindowAlert_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WindowAlert_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,9 +29,7 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACE51AFB9204008FA782 /* WindowAlert_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WindowAlert_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6717BD2B760814ABF304AA62 /* Pods_WindowAlert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WindowAlert_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B4CE6A558DD64676DE563C5B /* Pods-WindowAlert_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WindowAlert_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WindowAlert_Tests/Pods-WindowAlert_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DA5B3B751005E5EE0E2533D4 /* Pods-WindowAlert_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WindowAlert_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WindowAlert_Example/Pods-WindowAlert_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		FB77F1579A56D1A5A5A5C218 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,14 +43,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		607FACE21AFB9204008FA782 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5753FDE39ACDE87F4D5BF8FD /* Pods_WindowAlert_Tests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -71,8 +51,6 @@
 			children = (
 				DA5B3B751005E5EE0E2533D4 /* Pods-WindowAlert_Example.debug.xcconfig */,
 				13B32734EB87BC33D5A0111A /* Pods-WindowAlert_Example.release.xcconfig */,
-				153E0A7ABDCB59242713F540 /* Pods-WindowAlert_Tests.debug.xcconfig */,
-				B4CE6A558DD64676DE563C5B /* Pods-WindowAlert_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -92,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* WindowAlert_Example.app */,
-				607FACE51AFB9204008FA782 /* WindowAlert_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +83,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				1F3BAE2C1CF02DF800E665FA /* WindowAlertActionPreferencesTableViewCell.swift */,
 			);
 			name = "Example for WindowAlert";
 			path = WindowAlert;
@@ -161,27 +139,6 @@
 			productReference = 607FACD01AFB9204008FA782 /* WindowAlert_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		607FACE41AFB9204008FA782 /* WindowAlert_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "WindowAlert_Tests" */;
-			buildPhases = (
-				B84B5C55B8A2662441C0B7A9 /* 📦 Check Pods Manifest.lock */,
-				607FACE11AFB9204008FA782 /* Sources */,
-				607FACE21AFB9204008FA782 /* Frameworks */,
-				607FACE31AFB9204008FA782 /* Resources */,
-				E5F9461FCF269CFC0C6BC6CB /* 📦 Embed Pods Frameworks */,
-				1A7A1DE0E4D7FC3C33D5EFC0 /* 📦 Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
-			);
-			name = WindowAlert_Tests;
-			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* WindowAlert_Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -194,10 +151,6 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-					};
-					607FACE41AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
 			};
@@ -215,7 +168,6 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* WindowAlert_Example */,
-				607FACE41AFB9204008FA782 /* WindowAlert_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -231,31 +183,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		607FACE31AFB9204008FA782 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1A7A1DE0E4D7FC3C33D5EFC0 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WindowAlert_Tests/Pods-WindowAlert_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A71E82950472A283FC8DD190 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,21 +201,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WindowAlert_Example/Pods-WindowAlert_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B84B5C55B8A2662441C0B7A9 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		B8983F6F3EAAC8EAA243404D /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -299,21 +214,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WindowAlert_Example/Pods-WindowAlert_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E5F9461FCF269CFC0C6BC6CB /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WindowAlert_Tests/Pods-WindowAlert_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F8B1AE64B7EE10551D9B1398 /* 📦 Check Pods Manifest.lock */ = {
@@ -339,26 +239,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				1F3BAE2D1CF02DF800E665FA /* WindowAlertActionPreferencesTableViewCell.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		607FACE11AFB9204008FA782 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 607FACCF1AFB9204008FA782 /* WindowAlert_Example */;
-			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
@@ -417,7 +303,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -455,7 +341,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -488,40 +374,6 @@
 			};
 			name = Release;
 		};
-		607FACF31AFB9204008FA782 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 153E0A7ABDCB59242713F540 /* Pods-WindowAlert_Tests.debug.xcconfig */;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		607FACF41AFB9204008FA782 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4CE6A558DD64676DE563C5B /* Pods-WindowAlert_Tests.release.xcconfig */;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -539,15 +391,6 @@
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
 				607FACF11AFB9204008FA782 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "WindowAlert_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				607FACF31AFB9204008FA782 /* Debug */,
-				607FACF41AFB9204008FA782 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
