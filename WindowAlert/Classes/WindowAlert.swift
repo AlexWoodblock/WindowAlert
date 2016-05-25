@@ -18,7 +18,7 @@ public class WindowAlertAction {
      - parameter handler: Action to execute when action button will be selected.
      - returns: New WindowAlertAction object.
      */
-    init(id: String?, title: String, style: UIAlertActionStyle, handler: ((WindowAlertAction) -> Void)?) {
+    public init(id: String?, title: String, style: UIAlertActionStyle, handler: ((WindowAlertAction) -> Void)?) {
         self.id = id
         self.title = title
         self.style = style
@@ -32,7 +32,7 @@ public class WindowAlertAction {
      - parameter handler: Action to execute when action button will be selected.
      - returns: New WindowAlertAction object.
      */
-    convenience init(title: String, style: UIAlertActionStyle, handler: ((WindowAlertAction) -> Void)?) {
+    public convenience init(title: String, style: UIAlertActionStyle, handler: ((WindowAlertAction) -> Void)?) {
         self.init(id: nil, title: title, style: style, handler: handler)
     }
     
@@ -77,15 +77,16 @@ public class WindowAlert {
     
     /**
      Window level for UIWindow that holds UIAlertController.
-     Changing this won't affect already shown WindowAlerts.
+     Changing this won't have any effect on alert if it's already visible, so set it before calling show()
+     or hide and re-show alert after changing this value.
      */
     public var windowLevel = WindowAlert.defaultWindowLevel
     
     /**
-     Set this value to true if you want WindowAlert to be closed when user taps outside of UIAlertController.
+     Set this value to true if you want WindowAlert to be hidden when user taps outside of UIAlertController.
      This is disabled by default as it goes against default behavior of UIAlertController, but can be useful if you want to display dismissable UIAlertController without buttons.
      */
-    public var closeOnTapOutside = false
+    public var hideOnTapOutside = false
     
     /**
      The actions that user can invoke for this WindowAlert.
@@ -161,11 +162,11 @@ public class WindowAlert {
         }
     }
     
-    private var internalWindow: UIWindow?
+    private var internalWindow: TapAwareWindow?
     private var alertController: UIAlertController?
     private let rootViewController = UIViewController()
     
-    private var internalWindowTintColor: UIColor
+    private var internalWindowTintColor: UIColor?
     private var internalWindowFrame: CGRect
     
     /**
@@ -173,11 +174,11 @@ public class WindowAlert {
      - parameter title: Title for the alert.
      - parameter message: Message for the alert.
      - parameter preferredStyle: Preferred style for the alert.
-     - parameter tintColor: Tint color for alert.
+     - parameter tintColor: Tint color for alert. If nil, then default tint color will be used.
      - parameter frame: Size and position of window that contains alert controller. In most cases it should be the same as screen frame or main application window frame.
      - returns: New WindowAlert object.
      */
-    public init(title: String, message: String, preferredStyle: UIAlertControllerStyle, tintColor: UIColor, frame: CGRect) {
+    public init(title: String, message: String, preferredStyle: UIAlertControllerStyle, tintColor: UIColor? = nil, frame: CGRect) {
         actions = []
         textFieldConfigurationHandlers = []
         
@@ -197,7 +198,10 @@ public class WindowAlert {
      - returns: New WindowAlert object.
      */
     public convenience init(title: String, message: String, preferredStyle: UIAlertControllerStyle, referenceWindow: UIWindow) {
-        self.init(title: title, message: message, preferredStyle: preferredStyle, tintColor: referenceWindow.tintColor, frame: referenceWindow.frame)
+        
+        var tint: UIColor? = referenceWindow.tintColor //workaround for cases when referenceWindow.tintColor is nil
+        
+        self.init(title: title, message: message, preferredStyle: preferredStyle, tintColor: tint, frame: referenceWindow.frame)
     }
     
     /**
@@ -225,10 +229,35 @@ public class WindowAlert {
     }
     
     private func createNewWindow() {
-        internalWindow = UIWindow(frame: internalWindowFrame)
-        internalWindow?.tintColor = internalWindowTintColor
-        internalWindow?.windowLevel = windowLevel
-        internalWindow?.rootViewController = rootViewController
+        internalWindow = TapAwareWindow(frame: internalWindowFrame)
+        
+        //safe to unwrap, since, well, we just created it
+        internalWindow!.tintColor = internalWindowTintColor
+        internalWindow!.windowLevel = windowLevel
+        internalWindow!.rootViewController = rootViewController
+        
+        var strongSelf: WindowAlert? = self //this is needed to keep reference to self inside of closure until it's called
+        internalWindow!.actionOnTap = { touch in
+            if let s = strongSelf {
+                if(s.hideOnTapOutside) {
+                    
+                    guard let controller = s.alertController else {
+                        s.hide()
+                        return
+                    }
+                    
+                    let locationInView = touch.locationInView(nil) //pass nil to get location in window
+                    if(!controller.view.frame.contains(locationInView)) {
+                        s.hide()
+                        strongSelf = nil
+                    }
+                }
+            }
+        }
+    }
+    
+    deinit {
+        print("Deiniting...")
     }
     
     private func createAlertController() {
@@ -285,6 +314,7 @@ public class WindowAlert {
             //removing window from window hierarchy, and getting rid of unnecessary resources
             window.hidden = true
             window.removeFromSuperview()
+            window.actionOnTap = nil
             self.internalWindow = nil
             self.alertController = nil
         })
@@ -315,6 +345,7 @@ public class WindowAlert {
             //removing window from window hierarchy, and getting rid of unnecessary resources
             selfReference?.internalWindow?.hidden = true
             selfReference?.internalWindow?.removeFromSuperview()
+            selfReference?.internalWindow?.actionOnTap = nil
             selfReference?.internalWindow = nil
             selfReference?.alertController = nil
             
