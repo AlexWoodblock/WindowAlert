@@ -139,8 +139,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
                 
                 index = index + 1
             }
-        } else if(textFieldsCount > 0) {
-            print("WARNING! You're about to mess up big time - you can't add text fields to WindowAlert with ActionSheet style")
         }
         
         actions.filter {$0.title != nil}.forEach {
