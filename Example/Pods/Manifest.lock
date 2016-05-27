@@ -1,5 +1,5 @@
 PODS:
-  - WindowAlert (0.1.0)
+  - WindowAlert (1.0)
 
 DEPENDENCIES:
   - WindowAlert (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  WindowAlert: a7b40314576097deca2fd81541998be7c5722a5c
+  WindowAlert: 2d094b9479900e720c6318b1cff619ec20e23287
 
 PODFILE CHECKSUM: fe5c4827df190c6ed317a0955866e1279591b23c
 

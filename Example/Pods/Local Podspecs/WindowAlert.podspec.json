@@ -1,19 +1,20 @@
 {
   "name": "WindowAlert",
-  "version": "0.1.0",
-  "summary": "A short description of WindowAlert.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/WindowAlert",
-  "license": "MIT",
+  "version": "1.0",
+  "summary": "Helper class to simplify presentation of UIAlertController",
+  "description": "WindowAlert is a class that helps you handle the presentation of UIAlertController. It creates separate UIWindow with transparent UIViewController, and presents it on top of that UIViewController, so you don't have to worry about looking for a view controller to present your UIAlertController on.",
+  "homepage": "https://github.com/DrBreen/WindowAlert",
+  "license": "Apache 2.0",
   "authors": {
     "Alexander": "wryyy906@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/WindowAlert.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/DrBreen/WindowAlert.git",
+    "tag": "1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
-  "source_files": "WindowAlert/Classes/**/*"
+  "source_files": "WindowAlert/Classes/**/*",
+  "frameworks": "UIKit"
 }
