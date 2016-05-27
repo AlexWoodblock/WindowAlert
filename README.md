@@ -26,4 +26,4 @@ Alexander, wryyy906@gmail.com
 
 ## License
 
-WindowAlert is available under the MIT license. See the LICENSE file for more info.
+WindowAlert is available under the Apache 2.0 license. See the LICENSE file for more info.

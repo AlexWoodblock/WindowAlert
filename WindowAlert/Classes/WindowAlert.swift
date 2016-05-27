@@ -235,7 +235,7 @@ public class WindowAlert {
      */
     public convenience init(title: String, message: String, preferredStyle: UIAlertControllerStyle, referenceWindow: UIWindow) {
         
-        var tint: UIColor? = referenceWindow.tintColor //workaround for cases when referenceWindow.tintColor is nil
+        let tint: UIColor? = referenceWindow.tintColor //workaround for cases when referenceWindow.tintColor is nil
         
         self.init(title: title, message: message, preferredStyle: preferredStyle, tintColor: tint, frame: referenceWindow.frame)
     }

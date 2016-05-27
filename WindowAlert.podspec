@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 WindowAlert is a class that helps you handle the presentation of UIAlertController. It creates separate UIWindow with transparent UIViewController, and presents it on top of that UIViewController, so you don't have to worry about looking for a view controller to present your UIAlertController on.
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/WindowAlert"
+  s.homepage         = "https://github.com/DrBreen/WindowAlert"
   s.license          = 'Apache 2.0'
   s.author           = { "Alexander" => "wryyy906@gmail.com" }
   s.source           = { :git => "https://github.com/DrBreen/WindowAlert.git", :tag => s.version.to_s }
