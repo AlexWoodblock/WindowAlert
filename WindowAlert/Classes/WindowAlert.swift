@@ -2,6 +2,37 @@ import Foundation
 import UIKit
 
 /**
+ WindowAlertDelegate protocol defines method that allow objects conforming to this protocol to be notified
+ when WindowAlert object is being hidden or shown.
+ */
+public protocol WindowAlertDelegate {
+    
+    /**
+     Tells the delegate that alert will soon be shown.
+     - parameter windowAlert: alert to be shown.
+     */
+    func windowAlertWillShow(windowAlert alert: WindowAlert)
+    
+    /**
+     Tells the delegate that alert was shown to user.
+     - parameter windowAlert: alert that was shown.
+     */
+    func windowAlertDidShow(windowAlert alert: WindowAlert)
+    
+    /**
+     Tells the delegate that alert will soon be hidden.
+     - parameter windowAlert: alert to be hidden.
+    */
+    func windowAlertWillHide(windowAlert alert: WindowAlert)
+    
+    /**
+     Tells the delegate that alert was hidden.
+     - parameter windowAlert: alert that was hidden.
+    */
+    func windowAlertDidHide(windowAlert alert: WindowAlert)
+}
+
+/**
  WindowAlertAction describes single action that will be shown in WindowAlert.
  This objects describes action configuration, such as title of the action,
  it's style and behavior when tapping on button corresponding to this action.
@@ -92,6 +123,11 @@ public class WindowAlert {
      The actions that user can invoke for this WindowAlert.
      */
     public private(set) var actions: [WindowAlertAction]
+    
+    /**
+     Alert delegate that will receive reports for this alert visibility.
+    */
+    public var delegate: WindowAlertDelegate?
     
     private var textFieldConfigurationHandlers: [((UITextField) -> Void)?]
     
@@ -279,6 +315,8 @@ public class WindowAlert {
             return false
         }
         
+        delegate?.windowAlertWillShow(windowAlert: self)
+        
         createNewWindow()
         createAlertController()
         
@@ -286,7 +324,9 @@ public class WindowAlert {
         //it's also safe to unwrap rootViewController, thanks to ensureWindowIfPossible()
         //and it's also safe to unwrap internalWindow, since createNewWindow() takes care of it's creation
         internalWindow!.makeKeyAndVisible()
-        internalWindow!.rootViewController!.presentViewController(alertController!, animated: true, completion: nil)
+        internalWindow!.rootViewController!.presentViewController(alertController!, animated: true, completion: {
+            self.delegate?.windowAlertDidShow(windowAlert: self)
+        })
         
         return true
     }
@@ -306,6 +346,8 @@ public class WindowAlert {
             return false
         }
         
+        delegate?.windowAlertWillHide(windowAlert: self)
+        
         window.rootViewController!.dismissViewControllerAnimated(true, completion: {
             //removing window from window hierarchy, and getting rid of unnecessary resources
             window.hidden = true
@@ -313,6 +355,7 @@ public class WindowAlert {
             window.actionOnTap = nil
             self.internalWindow = nil
             self.alertController = nil
+            self.delegate?.windowAlertDidHide(windowAlert: self)
         })
         
         return true
@@ -345,6 +388,10 @@ public class WindowAlert {
             selfReference?.internalWindow = nil
             selfReference?.alertController = nil
             
+            if let selfStrongReference = selfReference {
+                selfStrongReference.delegate?.windowAlertDidHide(windowAlert: selfStrongReference)
+            }
+            
             //now onto preventing retain cycle
             selfReference = nil
         }
@@ -359,5 +406,9 @@ public class WindowAlert {
     public func addTextFieldWithConfigurationHandler(configurationHandler: ((UITextField) -> Void)?) {
         textFieldConfigurationHandlers.append(configurationHandler)
         alertController?.addTextFieldWithConfigurationHandler(configurationHandler)
+    }
+    
+    deinit {
+        print("Deiniting...")
     }
 }
