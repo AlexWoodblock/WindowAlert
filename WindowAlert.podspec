@@ -17,7 +17,7 @@ WindowAlert is a class that helps you handle the presentation of UIAlertControll
   s.author           = { "Alexander" => "wryyy906@gmail.com" }
   s.source           = { :git => "https://github.com/DrBreen/WindowAlert.git", :tag => s.version.to_s }
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '8.0'
 
   s.source_files = 'WindowAlert/Classes/**/*'
 
