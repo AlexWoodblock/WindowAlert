@@ -407,8 +407,4 @@ public class WindowAlert {
         textFieldConfigurationHandlers.append(configurationHandler)
         alertController?.addTextFieldWithConfigurationHandler(configurationHandler)
     }
-    
-    deinit {
-        print("Deiniting...")
-    }
 }
