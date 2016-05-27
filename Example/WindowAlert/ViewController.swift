@@ -15,7 +15,7 @@ class ActionInfo {
     var style = UIAlertActionStyle.Default
 }
 
-class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate, WindowAlertDelegate {
     
     //change this to see if app interaction changes when using convenience WindowAlert initializer that automatically pulls a reference window
     static let useConvenienceInitializer = false
@@ -128,6 +128,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     
     private func configureAlert(alert: WindowAlert) {
         alert.hideOnTapOutside = hideOnTapSwitch.on
+        alert.delegate = self
         
         if(alert.preferredStyle == .Alert) {
             var index = 0
@@ -144,6 +145,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         actions.filter {$0.title != nil}.forEach {
             alert.addAction(WindowAlertAction(title: $0.title!, style: $0.style, handler: nil))
         }
+    }
+    
+    
+    func windowAlertWillShow(windowAlert alert: WindowAlert) {
+        print("WindowAlert will be shown soon")
+    }
+    
+    func windowAlertDidShow(windowAlert alert: WindowAlert) {
+        print("WindowAlert was shown")
+    }
+    
+    func windowAlertWillHide(windowAlert alert: WindowAlert) {
+        print("WindowAlert will be hidden soon")
+    }
+    
+    func windowAlertDidHide(windowAlert alert: WindowAlert) {
+        print("WindowAlert did hide")
     }
 }
 
