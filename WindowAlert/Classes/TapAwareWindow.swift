@@ -25,11 +25,7 @@ class TapAwareWindow: UIWindow {
             return
         }
         
-        for touch in touches {
-            guard touch.phase == .Ended && touch.tapCount == 1 else {
-                continue
-            }
-            
+        for touch in touches where touch.phase == .Ended && touch.tapCount == 1 {
             tapAction(touch)
         }
     }
