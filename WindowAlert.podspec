@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "WindowAlert"
-  s.version          = "1.0.0.2"
+  s.version          = "1.0.0.2a"
   s.summary          = "Helper class to simplify presentation of UIAlertController"
 
   s.description      = <<-DESC
