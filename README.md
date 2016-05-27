@@ -5,11 +5,14 @@
 [![License](https://img.shields.io/cocoapods/l/WindowAlert.svg?style=flat)](http://cocoapods.org/pods/WindowAlert)
 [![Platform](https://img.shields.io/cocoapods/p/WindowAlert.svg?style=flat)](http://cocoapods.org/pods/WindowAlert)
 
+WindowAlert is a class that helps you handle the presentation of UIAlertController. It creates separate UIWindow with transparent UIViewController, and presents it on top of that UIViewController, so you don't have to worry about looking for a view controller to present your UIAlertController on.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+Swift 2.0 must be used in the project.
 
 ## Installation
 
