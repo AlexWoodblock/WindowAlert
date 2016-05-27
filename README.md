@@ -1,6 +1,5 @@
 # WindowAlert
 
-[![CI Status](http://img.shields.io/travis/Alexander/WindowAlert.svg?style=flat)](https://travis-ci.org/Alexander/WindowAlert)
 [![Version](https://img.shields.io/cocoapods/v/WindowAlert.svg?style=flat)](http://cocoapods.org/pods/WindowAlert)
 [![License](https://img.shields.io/cocoapods/l/WindowAlert.svg?style=flat)](http://cocoapods.org/pods/WindowAlert)
 [![Platform](https://img.shields.io/cocoapods/p/WindowAlert.svg?style=flat)](http://cocoapods.org/pods/WindowAlert)
