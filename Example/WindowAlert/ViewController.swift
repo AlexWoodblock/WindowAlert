@@ -130,16 +130,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         alert.hideOnTapOutside = hideOnTapSwitch.on
         alert.delegate = self
         
-        if(alert.preferredStyle == .Alert) {
-            var index = 0
-            while(index < textFieldsCount) {
-                let currentIndex = index //we do this to capture current value, not last one
-                alert.addTextFieldWithConfigurationHandler { textField in
-                    textField.text = "Text field \(currentIndex + 1)"
-                }
-                
-                index = index + 1
+        var index = 0
+        while(index < textFieldsCount) {
+            let currentIndex = index //we do this to capture current value, not last one
+            alert.addTextFieldWithConfigurationHandler { textField in
+                textField.text = "Text field \(currentIndex + 1)"
             }
+            
+            index = index + 1
         }
         
         actions.filter {$0.title != nil}.forEach {
