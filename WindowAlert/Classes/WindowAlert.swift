@@ -214,7 +214,7 @@ public class WindowAlert {
      - parameter frame: Size and position of window that contains alert controller. In most cases it should be the same as screen frame or main application window frame.
      - returns: New WindowAlert object.
      */
-    public init(title: String, message: String, preferredStyle: UIAlertControllerStyle, tintColor: UIColor?, frame: CGRect) {
+    public init(title: String, message: String?, preferredStyle: UIAlertControllerStyle, tintColor: UIColor?, frame: CGRect) {
         actions = []
         textFieldConfigurationHandlers = []
         
@@ -233,7 +233,7 @@ public class WindowAlert {
      - parameter referenceWindow: Window to inherit size and tint color from.
      - returns: New WindowAlert object.
      */
-    public convenience init(title: String, message: String, preferredStyle: UIAlertControllerStyle, referenceWindow: UIWindow) {
+    public convenience init(title: String, message: String?, preferredStyle: UIAlertControllerStyle, referenceWindow: UIWindow) {
         
         let tint: UIColor? = referenceWindow.tintColor //workaround for cases when referenceWindow.tintColor is nil
         
@@ -248,7 +248,7 @@ public class WindowAlert {
      - parameter preferredStyle: Preferred style for the alert.
      - returns: New WindowAlert object or nil if app delegate or main window is missing.
      */
-    public convenience init?(title: String, message: String, preferredStyle: UIAlertControllerStyle) {
+    public convenience init?(title: String, message: String?, preferredStyle: UIAlertControllerStyle) {
         guard let delegate = UIApplication.sharedApplication().delegate else {
             return nil
         }
