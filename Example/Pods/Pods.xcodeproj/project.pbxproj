@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F3BAE551CF89ECE00E665FA /* CommonWindowAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3BAE531CF89EC700E665FA /* CommonWindowAlerts.swift */; };
+		1268096C3F2FC5C9F9E628B7DDA081C7 /* TapAwareWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE69F3EE232481D619C754E157CD1C /* TapAwareWindow.swift */; };
 		4F2988F7379D3D2AE2F95311DA73C489 /* Pods-WindowAlert_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD38C086314A8B7108E550BC472FF43 /* Pods-WindowAlert_Example-dummy.m */; };
-		508D23BB7BA1851732592B43A8EF0429 /* TapAwareWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E635E0144209DBE0FA2E8B4E54BB92 /* TapAwareWindow.swift */; };
+		526A3A6CEE11C21C7245FCA9094354D3 /* CommonWindowAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE394646A7950380DA83B7CCE6280DC /* CommonWindowAlerts.swift */; };
 		60735EF24940F3D8BFBEBB9D5CCC4ED2 /* Pods-WindowAlert_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B9B4778C0366DE2E9CCD6BE54B2F9D2C /* Pods-WindowAlert_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		64D90E15A61D5832510C49EAFCA679B6 /* WindowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E43EA77EAC279317CA8A8DA23F6C855 /* WindowAlert.swift */; };
 		6A862BD3A56698980457BE676819FB42 /* WindowAlert-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3168602759D7F995122095B69479BDB1 /* WindowAlert-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7164800F0767CD7ABA3B27B52E8A3FB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D635D41133915B228CE899EF89DD95CE /* Foundation.framework */; };
-		BEBCCC2CCF5642714D07AC7E10F4B86B /* WindowAlert-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CB076E54560D649A9073E96676194DFA /* WindowAlert-dummy.m */; };
+		8A9E7B80D32F33CEE14A0055BBA95F7A /* WindowAlert-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CB076E54560D649A9073E96676194DFA /* WindowAlert-dummy.m */; };
 		C96406159C2DDA0E0EA9336AE74EF489 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF066F8D85A4D7A3B3A04D25E4D2AC88 /* UIKit.framework */; };
+		EFC77BD84CFF61045238AEDF534328DF /* WindowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9739725CE590E109BB76E157C555098 /* WindowAlert.swift */; };
 		FAA371E3BE74223DCC51BE0101478380 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D635D41133915B228CE899EF89DD95CE /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,28 +31,28 @@
 
 /* Begin PBXFileReference section */
 		01E8699861F8931E3E81C34EC1D32AEF /* Pods-WindowAlert_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-WindowAlert_Example.modulemap"; sourceTree = "<group>"; };
+		0AE394646A7950380DA83B7CCE6280DC /* CommonWindowAlerts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CommonWindowAlerts.swift; sourceTree = "<group>"; };
 		1A40DFA0259A3DA5FB0AF051DC247EA7 /* WindowAlert.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WindowAlert.xcconfig; sourceTree = "<group>"; };
-		1F3BAE531CF89EC700E665FA /* CommonWindowAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonWindowAlerts.swift; sourceTree = "<group>"; };
 		27F7463D92C86A30EA87F87B403CF919 /* Pods_WindowAlert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WindowAlert_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3168602759D7F995122095B69479BDB1 /* WindowAlert-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WindowAlert-umbrella.h"; sourceTree = "<group>"; };
 		48B2BF4D0C20F05EA1C53930FB21D16D /* Pods-WindowAlert_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WindowAlert_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		4EF4816CA9D92001A34239A729C92568 /* WindowAlert.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = WindowAlert.modulemap; sourceTree = "<group>"; };
 		58966CA7A90B3A63120F19F54ED46D5E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E43EA77EAC279317CA8A8DA23F6C855 /* WindowAlert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WindowAlert.swift; sourceTree = "<group>"; };
 		823620E5873E6DAD81B15E00B3798D07 /* Pods-WindowAlert_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WindowAlert_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9D2478A4F6DD65799151C54FD006BA3D /* Pods-WindowAlert_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WindowAlert_Example.release.xcconfig"; sourceTree = "<group>"; };
 		AF066F8D85A4D7A3B3A04D25E4D2AC88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		B258C38DFD766F06C6867D0D2EF84401 /* Pods-WindowAlert_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WindowAlert_Example-resources.sh"; sourceTree = "<group>"; };
+		B9739725CE590E109BB76E157C555098 /* WindowAlert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WindowAlert.swift; sourceTree = "<group>"; };
 		B9B4778C0366DE2E9CCD6BE54B2F9D2C /* Pods-WindowAlert_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WindowAlert_Example-umbrella.h"; sourceTree = "<group>"; };
 		BEB6E627C6CEF1AD716382BF245DEE53 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB076E54560D649A9073E96676194DFA /* WindowAlert-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WindowAlert-dummy.m"; sourceTree = "<group>"; };
 		D1D02372AA16939CDEAEA41A9264C148 /* WindowAlert-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WindowAlert-prefix.pch"; sourceTree = "<group>"; };
 		D635D41133915B228CE899EF89DD95CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D8E635E0144209DBE0FA2E8B4E54BB92 /* TapAwareWindow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TapAwareWindow.swift; sourceTree = "<group>"; };
 		DF8C6FC943183AA9BD90113D6C2CF1D9 /* Pods-WindowAlert_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WindowAlert_Example-frameworks.sh"; sourceTree = "<group>"; };
 		E4A355995C478B161793F92E1CFED6FB /* Pods-WindowAlert_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WindowAlert_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E7B0B7E6289E54ED24A936979CFE0664 /* WindowAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WindowAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FABE69F3EE232481D619C754E157CD1C /* TapAwareWindow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TapAwareWindow.swift; sourceTree = "<group>"; };
 		FAD38C086314A8B7108E550BC472FF43 /* Pods-WindowAlert_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WindowAlert_Example-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,16 +77,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		034F696F81EDF81BB9C990F2D0C2979C /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				D8E635E0144209DBE0FA2E8B4E54BB92 /* TapAwareWindow.swift */,
-				7E43EA77EAC279317CA8A8DA23F6C855 /* WindowAlert.swift */,
-				1F3BAE531CF89EC700E665FA /* CommonWindowAlerts.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		0C2F036B02966BCAB4EC2B5302EEC113 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,22 +126,22 @@
 			path = "Target Support Files/Pods-WindowAlert_Example";
 			sourceTree = "<group>";
 		};
+		6BFC912FEFC8593938EFE5D16E2B6FF1 /* WindowAlert */ = {
+			isa = PBXGroup;
+			children = (
+				FAF248EB440BB11C3BEB31D05DDF99CA /* Classes */,
+			);
+			path = WindowAlert;
+			sourceTree = "<group>";
+		};
 		6DCDE07D5AD042530FDD93A2C509164D /* WindowAlert */ = {
 			isa = PBXGroup;
 			children = (
 				1EEF08A05BA9890A232E7D2BEB5288CD /* Support Files */,
-				7C6F9B054CEEC014F7D9339C40FE352F /* WindowAlert */,
+				6BFC912FEFC8593938EFE5D16E2B6FF1 /* WindowAlert */,
 			);
 			name = WindowAlert;
 			path = ../..;
-			sourceTree = "<group>";
-		};
-		7C6F9B054CEEC014F7D9339C40FE352F /* WindowAlert */ = {
-			isa = PBXGroup;
-			children = (
-				034F696F81EDF81BB9C990F2D0C2979C /* Classes */,
-			);
-			path = WindowAlert;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -188,6 +178,16 @@
 				6DCDE07D5AD042530FDD93A2C509164D /* WindowAlert */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		FAF248EB440BB11C3BEB31D05DDF99CA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0AE394646A7950380DA83B7CCE6280DC /* CommonWindowAlerts.swift */,
+				FABE69F3EE232481D619C754E157CD1C /* TapAwareWindow.swift */,
+				B9739725CE590E109BB76E157C555098 /* WindowAlert.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +234,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B8F0BAF86E1BE58C7F7B3F43F77A3A86 /* Build configuration list for PBXNativeTarget "WindowAlert" */;
 			buildPhases = (
-				0ADA795D0BF085496EBCD9DA9E3B50EA /* Sources */,
+				184AFC47D70375DD59CC2B41D7988966 /* Sources */,
 				B1E7CACA379E2A551C1CB4C570FFAEA0 /* Frameworks */,
 				F2CE8BECBC90585D2CC1670D3618AE49 /* Headers */,
 			);
@@ -253,8 +253,8 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -275,14 +275,14 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0ADA795D0BF085496EBCD9DA9E3B50EA /* Sources */ = {
+		184AFC47D70375DD59CC2B41D7988966 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				508D23BB7BA1851732592B43A8EF0429 /* TapAwareWindow.swift in Sources */,
-				BEBCCC2CCF5642714D07AC7E10F4B86B /* WindowAlert-dummy.m in Sources */,
-				64D90E15A61D5832510C49EAFCA679B6 /* WindowAlert.swift in Sources */,
-				1F3BAE551CF89ECE00E665FA /* CommonWindowAlerts.swift in Sources */,
+				526A3A6CEE11C21C7245FCA9094354D3 /* CommonWindowAlerts.swift in Sources */,
+				1268096C3F2FC5C9F9E628B7DDA081C7 /* TapAwareWindow.swift in Sources */,
+				8A9E7B80D32F33CEE14A0055BBA95F7A /* WindowAlert-dummy.m in Sources */,
+				EFC77BD84CFF61045238AEDF534328DF /* WindowAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +310,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 823620E5873E6DAD81B15E00B3798D07 /* Pods-WindowAlert_Example.debug.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -341,38 +340,7 @@
 			};
 			name = Debug;
 		};
-		054B5FE2F2D7D86C5490A9A6978677A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A40DFA0259A3DA5FB0AF051DC247EA7 /* WindowAlert.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/WindowAlert/WindowAlert-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/WindowAlert/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/WindowAlert/WindowAlert.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "${PRODUCT_BUNDLE_IDENTIFIER}";
-				PRODUCT_NAME = WindowAlert;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		2389D542A75F49A2818D220B79D4F596 /* Release */ = {
+		174218DEA69FDDBCF739473E1BED69E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1A40DFA0259A3DA5FB0AF051DC247EA7 /* WindowAlert.xcconfig */;
 			buildSettings = {
@@ -388,11 +356,10 @@
 				GCC_PREFIX_HEADER = "Target Support Files/WindowAlert/WindowAlert-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/WindowAlert/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/WindowAlert/WindowAlert.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "${PRODUCT_BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = WindowAlert;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -436,7 +403,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
@@ -447,7 +414,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9D2478A4F6DD65799151C54FD006BA3D /* Pods-WindowAlert_Example.release.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -476,6 +442,36 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		B82655C8FEF5DEC489295AD6CE98646D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A40DFA0259A3DA5FB0AF051DC247EA7 /* WindowAlert.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/WindowAlert/WindowAlert-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WindowAlert/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/WindowAlert/WindowAlert.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = WindowAlert;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		C0CCEA32BF6C138A5554FA5059B22B1D /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -507,7 +503,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
@@ -529,8 +525,8 @@
 		B8F0BAF86E1BE58C7F7B3F43F77A3A86 /* Build configuration list for PBXNativeTarget "WindowAlert" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				054B5FE2F2D7D86C5490A9A6978677A2 /* Debug */,
-				2389D542A75F49A2818D220B79D4F596 /* Release */,
+				B82655C8FEF5DEC489295AD6CE98646D /* Debug */,
+				174218DEA69FDDBCF739473E1BED69E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
