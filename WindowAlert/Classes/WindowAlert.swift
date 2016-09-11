@@ -82,7 +82,7 @@ public class WindowAlertAction {
      */
     public private(set) var style: UIAlertActionStyle
     
-    private var action: ((WindowAlertAction) -> Void)?
+    fileprivate var action: ((WindowAlertAction) -> Void)?
 }
 
 /**
@@ -190,7 +190,7 @@ public class WindowAlert {
     public var visible: Bool {
         get {
             if let window = self.internalWindow {
-                return !window.hidden
+                return !window.isHidden
             }
             
             //if internalWindow is nil, then it can't be visible, returning false
@@ -249,7 +249,7 @@ public class WindowAlert {
      - returns: New WindowAlert object or nil if app delegate or main window is missing.
      */
     public convenience init?(title: String, message: String?, preferredStyle: UIAlertControllerStyle) {
-        guard let delegate = UIApplication.sharedApplication().delegate else {
+        guard let delegate = UIApplication.shared.delegate else {
             return nil
         }
         
@@ -282,7 +282,7 @@ public class WindowAlert {
                         return
                     }
                     
-                    let locationInView = touch.locationInView(nil) //pass nil to get location in window
+                    let locationInView = touch.location(in: nil) //pass nil to get location in window
                     if(!controller.view.frame.contains(locationInView)) {
                         s.hide()
                         strongSelf = nil
@@ -301,7 +301,7 @@ public class WindowAlert {
         }
         
         for textFieldConfigurationHandler in textFieldConfigurationHandlers {
-            alertController!.addTextFieldWithConfigurationHandler(textFieldConfigurationHandler)
+            alertController!.addTextField(configurationHandler: textFieldConfigurationHandler)
         }
     }
     
@@ -324,7 +324,7 @@ public class WindowAlert {
         //it's also safe to unwrap rootViewController, thanks to ensureWindowIfPossible()
         //and it's also safe to unwrap internalWindow, since createNewWindow() takes care of it's creation
         internalWindow!.makeKeyAndVisible()
-        internalWindow!.rootViewController!.presentViewController(alertController!, animated: true, completion: {
+        internalWindow!.rootViewController!.present(alertController!, animated: true, completion: {
             self.delegate?.windowAlertDidShow(windowAlert: self)
         })
         
@@ -348,9 +348,9 @@ public class WindowAlert {
         
         delegate?.windowAlertWillHide(windowAlert: self)
         
-        window.rootViewController!.dismissViewControllerAnimated(true, completion: {
+        window.rootViewController!.dismiss(animated: true, completion: {
             //removing window from window hierarchy, and getting rid of unnecessary resources
-            window.hidden = true
+            window.isHidden = true
             window.removeFromSuperview()
             window.actionOnTap = nil
             self.internalWindow = nil
@@ -367,7 +367,7 @@ public class WindowAlert {
      hide automatically when action is invoked.
      - parameter action: Action to add to the alert.
      */
-    public func addAction(action: WindowAlertAction) {
+    public func add(action: WindowAlertAction) {
         let alertAction = convertWindowAlertViewActionToAlertControllerAction(windowAlertViewAction: action)
         actions.append(action)
         alertController?.addAction(alertAction)
@@ -382,7 +382,7 @@ public class WindowAlert {
             
             //no need to dismiss UIAlertController, as it's automatically dismissed
             //removing window from window hierarchy, and getting rid of unnecessary resources
-            selfReference?.internalWindow?.hidden = true
+            selfReference?.internalWindow?.isHidden = true
             selfReference?.internalWindow?.removeFromSuperview()
             selfReference?.internalWindow?.actionOnTap = nil
             selfReference?.internalWindow = nil
@@ -403,8 +403,8 @@ public class WindowAlert {
      - parameter configurationHandler: Action to be invoked with UITextField as argument before
      showing alert to the user. Use this action to configure UITextField parameters.
      */
-    public func addTextFieldWithConfigurationHandler(configurationHandler: ((UITextField) -> Void)?) {
+    public func addTextField(configurationHandler: ((UITextField) -> Void)?) {
         textFieldConfigurationHandlers.append(configurationHandler)
-        alertController?.addTextFieldWithConfigurationHandler(configurationHandler)
+        alertController?.addTextField(configurationHandler: configurationHandler)
     }
 }

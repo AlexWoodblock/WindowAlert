@@ -12,7 +12,7 @@ import WindowAlert
 class ActionInfo {
     var title: String?
     
-    var style = UIAlertActionStyle.Default
+    var style = UIAlertActionStyle.default
 }
 
 class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate, WindowAlertDelegate {
@@ -32,21 +32,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     var windowAlertTitle: String? = "This is a title"
     var windowAlertMessage: String? = "This is a message"
     
-    @IBAction func didClickAddWindowAlertAction(sender: UIBarButtonItem) {
+    @IBAction func didClickAddWindowAlertAction(_ sender: UIBarButtonItem) {
         let actionInfo = ActionInfo()
         actionInfo.title = "Action"
         actions.append(actionInfo)
         actionsTableView.reloadData()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return actions.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //safe to force-cast since we know it will be WindowAlertActionPreferencesTableViewCell
-        let cell = tableView.dequeueReusableCellWithIdentifier(ViewController.cellIdentifier, forIndexPath: indexPath) as! WindowAlertActionPreferencesTableViewCell
-        let row = indexPath.row
+        let cell = tableView.dequeueReusableCell(withIdentifier: ViewController.cellIdentifier, for: indexPath) as! WindowAlertActionPreferencesTableViewCell
+        let row = (indexPath as NSIndexPath).row
         let actionInfo = actions[row]
         
         cell.actionName.text = actionInfo.title
@@ -60,47 +60,47 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         return cell
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if(editingStyle == .Delete) {
-            actions.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == .delete) {
+            actions.remove(at: (indexPath as NSIndexPath).row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    @IBAction func didChangeWindowAlertTitle(sender: UITextField) {
+    @IBAction func didChangeWindowAlertTitle(_ sender: UITextField) {
         windowAlertTitle = sender.text
     }
     
-    @IBAction func didChangeWindowAlertMessage(sender: UITextField) {
+    @IBAction func didChangeWindowAlertMessage(_ sender: UITextField) {
         windowAlertMessage = sender.text
     }
     
-    @IBAction func didChangeTextFieldsCount(sender: UIStepper) {
+    @IBAction func didChangeTextFieldsCount(_ sender: UIStepper) {
         textFieldsCount = Int(abs(sender.value))
         
         textFieldsCountLabel.text = "\(textFieldsCount)"
     }
     
     
-    @IBAction func didClickShowAsActionSheetButton(sender: UIBarButtonItem) {
-        showWithStyle(.ActionSheet)
+    @IBAction func didClickShowAsActionSheetButton(_ sender: UIBarButtonItem) {
+        showWithStyle(.actionSheet)
     }
     
-    @IBAction func didClickShowAsAlertButton(sender: UIBarButtonItem) {
-        showWithStyle(.Alert)
+    @IBAction func didClickShowAsAlertButton(_ sender: UIBarButtonItem) {
+        showWithStyle(.alert)
     }
     
-    private func showWithStyle(style: UIAlertControllerStyle) {
-        if let msg = windowAlertMessage, title = windowAlertTitle {
+    fileprivate func showWithStyle(_ style: UIAlertControllerStyle) {
+        if let msg = windowAlertMessage, let title = windowAlertTitle {
             if ViewController.useConvenienceInitializer {
                 guard let alert = WindowAlert(title: title, message: msg, preferredStyle: style) else {
                     print("WindowAlert failed to init with UIWindow from app delegate, try using regular init")
@@ -126,14 +126,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         }
     }
     
-    private func configureAlert(alert: WindowAlert) {
-        alert.hideOnTapOutside = hideOnTapSwitch.on
+    fileprivate func configureAlert(_ alert: WindowAlert) {
+        alert.hideOnTapOutside = hideOnTapSwitch.isOn
         alert.delegate = self
         
         var index = 0
         while(index < textFieldsCount) {
             let currentIndex = index //we do this to capture current value, not last one
-            alert.addTextFieldWithConfigurationHandler { textField in
+            alert.addTextField { textField in
                 textField.text = "Text field \(currentIndex + 1)"
             }
             
@@ -141,7 +141,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         }
         
         actions.filter {$0.title != nil}.forEach {
-            alert.addAction(WindowAlertAction(title: $0.title!, style: $0.style, handler: nil))
+            alert.add(action: WindowAlertAction(title: $0.title!, style: $0.style, handler: nil))
         }
     }
     

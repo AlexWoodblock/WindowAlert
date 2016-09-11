@@ -11,7 +11,7 @@ WindowAlert is a class that helps you handle the presentation of UIAlertControll
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
-Swift 2.0 must be used in the project.
+Swift 3.0 must be used in the project.
 
 ## Installation
 
@@ -19,7 +19,7 @@ WindowAlert is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "WindowAlert"
+pod "WindowAlert", 
 ```
 
 ## Author

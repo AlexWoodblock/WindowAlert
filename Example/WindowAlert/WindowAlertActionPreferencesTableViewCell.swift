@@ -10,8 +10,8 @@ import UIKit
 
 class WindowAlertActionPreferencesTableViewCell: UITableViewCell {
     
-    static let segmentStyleMap = [0 : UIAlertActionStyle.Default, 1 : UIAlertActionStyle.Cancel, 2 : UIAlertActionStyle.Destructive]
-    static let styleSegmentMap = [UIAlertActionStyle.Default : 0, UIAlertActionStyle.Cancel : 1, UIAlertActionStyle.Destructive : 2]
+    static let segmentStyleMap = [0 : UIAlertActionStyle.default, 1 : UIAlertActionStyle.cancel, 2 : UIAlertActionStyle.destructive]
+    static let styleSegmentMap = [UIAlertActionStyle.default : 0, UIAlertActionStyle.cancel : 1, UIAlertActionStyle.destructive : 2]
     
     @IBOutlet var actionName: UITextField!
     @IBOutlet var actionTypeSwitch: UISegmentedControl!
@@ -21,8 +21,8 @@ class WindowAlertActionPreferencesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        actionName.addTarget(self, action: #selector(didChangeText), forControlEvents: .EditingChanged)
-        actionTypeSwitch.addTarget(self, action: #selector(didChangeType), forControlEvents: .ValueChanged)
+        actionName.addTarget(self, action: #selector(didChangeText), for: .editingChanged)
+        actionTypeSwitch.addTarget(self, action: #selector(didChangeType), for: .valueChanged)
     }
     
     func didChangeText() {

@@ -17,9 +17,9 @@ extension WindowAlert {
      - parameter actionTitle: Title for the action button.
      - returns: New WindowAlert object or nil if app delegate or main window is missing.
     */
-    public class func singleActionAlert(title title: String, message: String?, actionTitle: String) -> WindowAlert? {
-        let alert = WindowAlert(title: title, message: message, preferredStyle: .Alert)
-        alert?.addAction(WindowAlertAction(title: actionTitle, style: .Default, handler: nil))
+    public class func singleActionAlert(title: String, message: String?, actionTitle: String) -> WindowAlert? {
+        let alert = WindowAlert(title: title, message: message, preferredStyle: .alert)
+        alert?.add(action: WindowAlertAction(title: actionTitle, style: .default, handler: nil))
         return alert
     }
     
@@ -32,10 +32,10 @@ extension WindowAlert {
      - parameter frame: Size and position of window that contains alert controller. In most cases it should be the same as screen frame or main application window frame.
      - returns: New WindowAlert object.
      */
-    public class func singleActionAlert(title title: String, message: String?, actionTitle: String, tintColor: UIColor?, frame: CGRect) -> WindowAlert {
-        let alert = WindowAlert(title: title, message: message, preferredStyle: .Alert, tintColor: tintColor, frame: frame)
+    public class func singleActionAlert(title: String, message: String?, actionTitle: String, tintColor: UIColor?, frame: CGRect) -> WindowAlert {
+        let alert = WindowAlert(title: title, message: message, preferredStyle: .alert, tintColor: tintColor, frame: frame)
         
-        alert.addAction(WindowAlertAction(title: actionTitle, style: .Default, handler: nil))
+        alert.add(action: WindowAlertAction(title: actionTitle, style: .default, handler: nil))
         
         return alert
     }
@@ -48,9 +48,9 @@ extension WindowAlert {
      - parameter referenceWindow: Window to inherit size and tint color from.
      - returns: New WindowAlert object.
      */
-    public class func singleActionAlert(title title: String, message: String?, actionTitle: String, referenceWindow: UIWindow) -> WindowAlert {
-        let alert = WindowAlert(title: title, message: message, preferredStyle: .Alert, referenceWindow: referenceWindow)
-        alert.addAction(WindowAlertAction(title: actionTitle, style: .Default, handler: nil))
+    public class func singleActionAlert(title: String, message: String?, actionTitle: String, referenceWindow: UIWindow) -> WindowAlert {
+        let alert = WindowAlert(title: title, message: message, preferredStyle: .alert, referenceWindow: referenceWindow)
+        alert.add(action: WindowAlertAction(title: actionTitle, style: .default, handler: nil))
         return alert
     }
     
