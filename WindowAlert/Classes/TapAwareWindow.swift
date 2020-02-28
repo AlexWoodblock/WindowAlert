@@ -1,11 +1,3 @@
-//
-//  TapAwareWindow.swift
-//  Pods
-//
-//  Created by Александр on 5/25/16.
-//
-//
-
 import UIKit
 
 /**
