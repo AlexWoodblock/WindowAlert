@@ -49,7 +49,7 @@ public class WindowAlertAction {
      - parameter handler: Action to execute when action button will be selected.
      - returns: New WindowAlertAction object.
      */
-    public init(id: String?, title: String, style: UIAlertActionStyle, handler: ((WindowAlertAction) -> Void)?) {
+    public init(id: String?, title: String, style: UIAlertAction.Style, handler: ((WindowAlertAction) -> Void)?) {
         self.id = id
         self.title = title
         self.style = style
@@ -63,7 +63,7 @@ public class WindowAlertAction {
      - parameter handler: Action to execute when action button will be selected.
      - returns: New WindowAlertAction object.
      */
-    public convenience init(title: String, style: UIAlertActionStyle, handler: ((WindowAlertAction) -> Void)?) {
+    public convenience init(title: String, style: UIAlertAction.Style, handler: ((WindowAlertAction) -> Void)?) {
         self.init(id: nil, title: title, style: style, handler: handler)
     }
     
@@ -80,7 +80,7 @@ public class WindowAlertAction {
     /**
      Style for WindowAlertAction. All the styles that are supported in UIAlertAction are also supported here.
      */
-    public private(set) var style: UIAlertActionStyle
+    public private(set) var style: UIAlertAction.Style
     
     fileprivate var action: ((WindowAlertAction) -> Void)?
 }
@@ -104,7 +104,7 @@ public class WindowAlert {
      Only change this value if you want to change WindowAlert window level globally,
      for per-alert basis please use windowLevel property of WindowAlert.
      */
-    public static var defaultWindowLevel: UIWindowLevel = UIWindowLevelAlert
+    public static var defaultWindowLevel = UIWindow.Level.alert
     
     /**
      Window level for UIWindow that holds UIAlertController.
@@ -163,12 +163,12 @@ public class WindowAlert {
         }
     }
     
-    private var storedPreferredStyle: UIAlertControllerStyle
+    private var storedPreferredStyle: UIAlertController.Style
     
     /**
      Preferred style of the alert.
      */
-    public var preferredStyle: UIAlertControllerStyle {
+    public var preferredStyle: UIAlertController.Style {
         get {
             return storedPreferredStyle
         }
@@ -214,7 +214,7 @@ public class WindowAlert {
      - parameter frame: Size and position of window that contains alert controller. In most cases it should be the same as screen frame or main application window frame.
      - returns: New WindowAlert object.
      */
-    public init(title: String, message: String?, preferredStyle: UIAlertControllerStyle, tintColor: UIColor?, frame: CGRect) {
+    public init(title: String, message: String?, preferredStyle: UIAlertController.Style, tintColor: UIColor?, frame: CGRect) {
         actions = []
         textFieldConfigurationHandlers = []
         
@@ -233,7 +233,7 @@ public class WindowAlert {
      - parameter referenceWindow: Window to inherit size and tint color from.
      - returns: New WindowAlert object.
      */
-    public convenience init(title: String, message: String?, preferredStyle: UIAlertControllerStyle, referenceWindow: UIWindow) {
+    public convenience init(title: String, message: String?, preferredStyle: UIAlertController.Style, referenceWindow: UIWindow) {
         
         let tint: UIColor? = referenceWindow.tintColor //workaround for cases when referenceWindow.tintColor is nil
         
@@ -248,7 +248,7 @@ public class WindowAlert {
      - parameter preferredStyle: Preferred style for the alert.
      - returns: New WindowAlert object or nil if app delegate or main window is missing.
      */
-    public convenience init?(title: String, message: String?, preferredStyle: UIAlertControllerStyle) {
+    public convenience init?(title: String, message: String?, preferredStyle: UIAlertController.Style) {
         guard let delegate = UIApplication.shared.delegate else {
             return nil
         }
@@ -310,6 +310,7 @@ public class WindowAlert {
      on top of invisible root view controller attached to this new window.
      - returns: True if UIAlertController was presented, false otherwise(was already presented, or reference window is missing)
      */
+    @discardableResult
     public func show() -> Bool {
         if(visible) {
             return false
@@ -336,6 +337,7 @@ public class WindowAlert {
      Removes window from window hierarchy and dismisses UIAlertController.
      - returns: True if was hidden successfully, false if tried to hide already hidden alert.
      */
+    @discardableResult
     public func hide() -> Bool {
         //if WindowAlert is already hidden, no need to proceed
         if(!visible) {
