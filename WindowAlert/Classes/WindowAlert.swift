@@ -148,7 +148,7 @@ public class WindowAlert {
     
     fileprivate var internalWindow: TapAwareWindow?
     fileprivate var alertController: UIAlertController?
-    private let rootViewController = UIViewController()
+    private let rootViewController = StatusBarStyleInheritingViewController()
     
     private var internalWindowTintColor: UIColor?
     private var internalWindowFrame: CGRect
@@ -336,6 +336,15 @@ fileprivate extension WindowAlertAction {
         }
         
         return alertAction
+    }
+    
+}
+
+// big thanks to https://github.com/ButterflyNetwork for the idea!
+fileprivate class StatusBarStyleInheritingViewController: UIViewController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIApplication.shared.statusBarStyle
     }
     
 }
