@@ -15,6 +15,7 @@
 		7164800F0767CD7ABA3B27B52E8A3FB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D635D41133915B228CE899EF89DD95CE /* Foundation.framework */; };
 		8A9E7B80D32F33CEE14A0055BBA95F7A /* WindowAlert-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CB076E54560D649A9073E96676194DFA /* WindowAlert-dummy.m */; };
 		C96406159C2DDA0E0EA9336AE74EF489 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF066F8D85A4D7A3B3A04D25E4D2AC88 /* UIKit.framework */; };
+		D7A128C3240959B600EE6BD8 /* WindowAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A128C12409595000EE6BD8 /* WindowAlertAction.swift */; };
 		EFC77BD84CFF61045238AEDF534328DF /* WindowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9739725CE590E109BB76E157C555098 /* WindowAlert.swift */; };
 		FAA371E3BE74223DCC51BE0101478380 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D635D41133915B228CE899EF89DD95CE /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		CB076E54560D649A9073E96676194DFA /* WindowAlert-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WindowAlert-dummy.m"; sourceTree = "<group>"; };
 		D1D02372AA16939CDEAEA41A9264C148 /* WindowAlert-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WindowAlert-prefix.pch"; sourceTree = "<group>"; };
 		D635D41133915B228CE899EF89DD95CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D7A128C12409595000EE6BD8 /* WindowAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAlertAction.swift; sourceTree = "<group>"; };
 		DF8C6FC943183AA9BD90113D6C2CF1D9 /* Pods-WindowAlert_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WindowAlert_Example-frameworks.sh"; sourceTree = "<group>"; };
 		E4A355995C478B161793F92E1CFED6FB /* Pods-WindowAlert_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WindowAlert_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E7B0B7E6289E54ED24A936979CFE0664 /* WindowAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WindowAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +188,7 @@
 				0AE394646A7950380DA83B7CCE6280DC /* WindowAlertConvenienceInits.swift */,
 				FABE69F3EE232481D619C754E157CD1C /* TapAwareWindow.swift */,
 				B9739725CE590E109BB76E157C555098 /* WindowAlert.swift */,
+				D7A128C12409595000EE6BD8 /* WindowAlertAction.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -257,7 +260,7 @@
 				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					0519CF798ED4EA5F3F7676A679672F63 = {
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1130;
 					};
 					48E7672D2CEAE1F821DE4F07DF2F6AE7 = {
 						LastSwiftMigration = 0800;
@@ -291,6 +294,7 @@
 				526A3A6CEE11C21C7245FCA9094354D3 /* WindowAlertConvenienceInits.swift in Sources */,
 				1268096C3F2FC5C9F9E628B7DDA081C7 /* TapAwareWindow.swift in Sources */,
 				8A9E7B80D32F33CEE14A0055BBA95F7A /* WindowAlert-dummy.m in Sources */,
+				D7A128C3240959B600EE6BD8 /* WindowAlertAction.swift in Sources */,
 				EFC77BD84CFF61045238AEDF534328DF /* WindowAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +324,7 @@
 			baseConfigurationReference = 823620E5873E6DAD81B15E00B3798D07 /* Pods-WindowAlert_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -441,6 +446,7 @@
 			baseConfigurationReference = 9D2478A4F6DD65799151C54FD006BA3D /* Pods-WindowAlert_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

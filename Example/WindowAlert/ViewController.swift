@@ -15,6 +15,8 @@ class ActionInfo {
     var style = UIAlertAction.Style.default
     
     var image: UIImage?
+    
+    var alignment: NSTextAlignment?
 }
 
 class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate, WindowAlertDelegate {
@@ -64,6 +66,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         //safe to force-unwrap because we know this value will be present
         cell.actionTypeSwitch.selectedSegmentIndex = WindowAlertActionPreferencesTableViewCell.styleSegmentMap[actionInfo.style]!
         
+        if let alignment = actionInfo.alignment {
+            cell.alignmentSwitch.selectedSegmentIndex = WindowAlertActionPreferencesTableViewCell.alignmentSegmentMap[alignment] ?? 0
+        } else {
+            cell.alignmentSwitch.selectedSegmentIndex = 0
+        }
+        
+        
         return cell
     }
     
@@ -88,7 +97,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     }
     
     @IBAction func didChangeWindowAlertMessage(_ sender: UITextField) {
-        windowAlertMessage = sender.text
+        if sender.text?.isEmpty == true {
+            windowAlertMessage = nil
+        } else {
+            windowAlertMessage = sender.text
+        }
     }
     
     @IBAction func didChangeTextFieldsCount(_ sender: UIStepper) {
@@ -107,9 +120,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     }
     
     fileprivate func showWithStyle(_ style: UIAlertController.Style) {
-        if let msg = windowAlertMessage, let title = windowAlertTitle {
+        if let title = windowAlertTitle {
             if ViewController.useConvenienceInitializer {
-                guard let alert = WindowAlert(title: title, message: msg, preferredStyle: style) else {
+                guard let alert = WindowAlert(title: title, message: windowAlertMessage, preferredStyle: style) else {
                     print("WindowAlert failed to init with UIWindow from app delegate, try using regular init")
                     return
                     
@@ -124,7 +137,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
                     return
                 }
                 
-                let alert = WindowAlert(title: title, message: msg, preferredStyle: style, referenceWindow: window)
+                let alert = WindowAlert(title: title, message: windowAlertMessage, preferredStyle: style, referenceWindow: window)
                 configureAlert(alert)
                 
                 let shown = alert.show()
@@ -153,6 +166,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
                 title: $0.title!,
                 style: $0.style,
                 image: $0.image,
+                titleAlignment: $0.alignment,
                 handler: { action in
                     print("Action \(action.id!) was clicked")
                 }

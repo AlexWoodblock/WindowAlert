@@ -18,15 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="144" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qws-qO-Ggg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="180" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qws-qO-Ggg">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="675.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WindowAlertPrefsCell" rowHeight="144" id="owv-uq-9bX" customClass="WindowAlertActionPreferencesTableViewCell" customModule="WindowAlert_Example" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="144"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WindowAlertPrefsCell" rowHeight="180" id="owv-uq-9bX" customClass="WindowAlertActionPreferencesTableViewCell" customModule="WindowAlert_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="owv-uq-9bX" id="HiS-yw-EMB">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="144"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="WindowAlert action name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nt5-b6-k6y">
@@ -51,6 +51,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xvt-aJ-CZd">
+                                                    <rect key="frame" x="20" y="141" width="374" height="32"/>
+                                                    <segments>
+                                                        <segment title="Default"/>
+                                                        <segment title="Left"/>
+                                                        <segment title="Center"/>
+                                                        <segment title="Right"/>
+                                                    </segments>
+                                                </segmentedControl>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="w8B-SD-yqw" firstAttribute="leading" secondItem="yeo-BN-6jv" secondAttribute="trailing" constant="16" id="59k-GL-7tQ"/>
@@ -61,11 +70,14 @@
                                                 <constraint firstItem="yeo-BN-6jv" firstAttribute="leading" secondItem="Rt4-kZ-g1T" secondAttribute="leading" id="Rax-Bs-Seg"/>
                                                 <constraint firstItem="w8B-SD-yqw" firstAttribute="trailing" secondItem="Rt4-kZ-g1T" secondAttribute="trailing" id="SYZ-cT-PXA"/>
                                                 <constraint firstItem="Rt4-kZ-g1T" firstAttribute="top" secondItem="Nt5-b6-k6y" secondAttribute="bottom" constant="8" id="TLI-oI-0Id"/>
+                                                <constraint firstItem="xvt-aJ-CZd" firstAttribute="top" secondItem="yeo-BN-6jv" secondAttribute="bottom" constant="16" id="Tir-0Y-4TN"/>
                                                 <constraint firstItem="Nt5-b6-k6y" firstAttribute="centerY" secondItem="HiS-yw-EMB" secondAttribute="centerY" id="X6A-SR-ThQ"/>
+                                                <constraint firstItem="xvt-aJ-CZd" firstAttribute="width" secondItem="Rt4-kZ-g1T" secondAttribute="width" id="Zrc-6k-7Rs"/>
                                                 <constraint firstItem="w8B-SD-yqw" firstAttribute="centerY" secondItem="yeo-BN-6jv" secondAttribute="centerY" id="e6V-5f-Fuy"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Rt4-kZ-g1T" secondAttribute="trailing" id="f1t-YW-9V9"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Rt4-kZ-g1T" secondAttribute="trailing" id="fBG-q4-47G"/>
                                                 <constraint firstItem="Nt5-b6-k6y" firstAttribute="leading" secondItem="HiS-yw-EMB" secondAttribute="leadingMargin" id="iZm-xA-aga"/>
+                                                <constraint firstItem="xvt-aJ-CZd" firstAttribute="leading" secondItem="Rt4-kZ-g1T" secondAttribute="leading" id="naw-xB-X7y"/>
                                                 <constraint firstItem="Nt5-b6-k6y" firstAttribute="top" secondItem="HiS-yw-EMB" secondAttribute="topMargin" constant="4" id="pYb-py-Qxm"/>
                                                 <constraint firstItem="Rt4-kZ-g1T" firstAttribute="centerY" secondItem="HiS-yw-EMB" secondAttribute="centerY" id="vWh-z4-BSR"/>
                                             </constraints>
@@ -81,6 +93,7 @@
                                         <connections>
                                             <outlet property="actionName" destination="Nt5-b6-k6y" id="Aor-VD-1TB"/>
                                             <outlet property="actionTypeSwitch" destination="Rt4-kZ-g1T" id="FUb-Y8-D15"/>
+                                            <outlet property="alignmentSwitch" destination="xvt-aJ-CZd" id="EDs-5Q-sl8"/>
                                             <outlet property="enableImageSwitch" destination="w8B-SD-yqw" id="0Ii-Dc-saE"/>
                                         </connections>
                                     </tableViewCell>

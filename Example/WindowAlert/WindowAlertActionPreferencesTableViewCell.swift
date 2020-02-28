@@ -22,9 +22,23 @@ class WindowAlertActionPreferencesTableViewCell: UITableViewCell {
         UIAlertAction.Style.destructive : 2
     ]
     
+    static let alignmentSegmentMap = [
+        NSTextAlignment.left : 1,
+        NSTextAlignment.center : 2,
+        NSTextAlignment.right : 3,
+    ]
+    
+    static let segmentAlignmentMap = [
+        1 : NSTextAlignment.left,
+        2 : NSTextAlignment.center,
+        3 : NSTextAlignment.right
+        
+    ]
+    
     @IBOutlet var actionName: UITextField!
     @IBOutlet var actionTypeSwitch: UISegmentedControl!
     @IBOutlet var enableImageSwitch: UISwitch!
+    @IBOutlet var alignmentSwitch: UISegmentedControl!
     
     var boundActionInfo: ActionInfo?
     
@@ -34,6 +48,7 @@ class WindowAlertActionPreferencesTableViewCell: UITableViewCell {
         actionName.addTarget(self, action: #selector(WindowAlertActionPreferencesTableViewCell.didChangeText), for: .editingChanged)
         actionTypeSwitch.addTarget(self, action: #selector(WindowAlertActionPreferencesTableViewCell.didChangeType), for: .valueChanged)
         enableImageSwitch.addTarget(self, action: #selector(WindowAlertActionPreferencesTableViewCell.didChangeImageEnabled), for: .valueChanged)
+        alignmentSwitch.addTarget(self, action: #selector(WindowAlertActionPreferencesTableViewCell.didChangeTextAlignment), for: .valueChanged)
     }
     
     @objc func didChangeText() {
@@ -46,6 +61,10 @@ class WindowAlertActionPreferencesTableViewCell: UITableViewCell {
     
     @objc func didChangeImageEnabled() {
         boundActionInfo?.image = enableImageSwitch.isOn ? UIImage(named: "ActionItem") : nil
+    }
+    
+    @objc func didChangeTextAlignment() {
+        boundActionInfo?.alignment = WindowAlertActionPreferencesTableViewCell.segmentAlignmentMap[alignmentSwitch.selectedSegmentIndex]
     }
     
 }
