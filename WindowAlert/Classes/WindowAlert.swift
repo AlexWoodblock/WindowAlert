@@ -162,7 +162,7 @@ public class WindowAlert {
      - parameter frame: Size and position of window that contains alert controller. In most cases it should be the same as screen frame or main application window frame.
      - returns: New WindowAlert object.
      */
-    public init(title: String, message: String?, preferredStyle: UIAlertController.Style, tintColor: UIColor?, frame: CGRect) {
+    public init(title: String?, message: String?, preferredStyle: UIAlertController.Style, tintColor: UIColor?, frame: CGRect) {
         actions = []
         textFieldConfigurationHandlers = []
         

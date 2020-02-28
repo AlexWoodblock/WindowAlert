@@ -11,7 +11,7 @@ extension WindowAlert {
      - parameter singleActionTitle: Title for the action button.
      - returns: New WindowAlert object. Will crash if app delegate or main window is missing. This will not happen normally unless you try to initialize this object very early in the app lifecycle.
     */
-    public convenience init(title: String, message: String? = nil, singleActionTitle: String) {
+    public convenience init(title: String?, message: String? = nil, singleActionTitle: String) {
         self.init(title: title, message: message, preferredStyle: .alert)!
         
         add(action: WindowAlertAction(title: singleActionTitle, style: .default, handler: nil))
@@ -25,7 +25,7 @@ extension WindowAlert {
      - parameter referenceWindow: Window to inherit size and tint color from.
      - returns: New WindowAlert object.
      */
-    public convenience init(title: String, message: String?, preferredStyle: UIAlertController.Style, referenceWindow: UIWindow) {
+    public convenience init(title: String?, message: String?, preferredStyle: UIAlertController.Style, referenceWindow: UIWindow) {
         let tint: UIColor? = referenceWindow.tintColor
         self.init(title: title, message: message, preferredStyle: preferredStyle, tintColor: tint, frame: referenceWindow.frame)
     }
@@ -38,7 +38,7 @@ extension WindowAlert {
      - parameter preferredStyle: Preferred style for the alert.
      - returns: New WindowAlert object or nil if app delegate or main window is missing.
      */
-    public convenience init?(title: String, message: String?, preferredStyle: UIAlertController.Style) {
+    public convenience init?(title: String?, message: String?, preferredStyle: UIAlertController.Style) {
         guard let delegate = UIApplication.shared.delegate else {
             return nil
         }
