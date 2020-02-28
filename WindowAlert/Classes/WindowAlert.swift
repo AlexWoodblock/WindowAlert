@@ -52,7 +52,13 @@ public class WindowAlert {
      Only change this value if you want to change WindowAlert window level globally,
      for per-alert basis please use windowLevel property of WindowAlert.
      */
-    public static var defaultWindowLevel = UIWindow.Level.alert
+    public static var defaultWindowLevel: UIWindow.Level = {
+        #if swift(>=5.0)
+        return UIWindow.Level.alert
+        #else
+        return UIWindowLevelAlert
+        #endif
+    }()
     
     /**
      Window level for UIWindow that holds UIAlertController.
