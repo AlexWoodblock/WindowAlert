@@ -39,7 +39,7 @@ public protocol WindowAlertDelegate {
  Please note that you must not call WindowAlert hide() method in WindowAlertAction handler,
  as WindowAlert will be hidden automatically after action invocation.
  */
-public class WindowAlertAction {
+public struct WindowAlertAction {
     
     /**
      Creates and returns action with specified indentifier, title, style and action handler.
@@ -47,12 +47,20 @@ public class WindowAlertAction {
      - parameter title: Text that will be displayed on action button. Must be localized.
      - parameter style: Action button style.
      - parameter handler: Action to execute when action button will be selected.
+     - parameter image: Image for the action. Depends on Apple internal implementation, so it may stop working without notice on iOS update.
      - returns: New WindowAlertAction object.
      */
-    public init(id: String? = nil, title: String, style: UIAlertAction.Style, handler: ((WindowAlertAction) -> Void)?) {
+    public init(
+        id: String? = nil,
+        title: String,
+        style: UIAlertAction.Style,
+        image: UIImage? = nil,
+        handler: ((WindowAlertAction) -> Void)? = nil
+    ) {
         self.id = id
         self.title = title
         self.style = style
+        self.image = image
         self.action = handler
     }
     
@@ -70,6 +78,11 @@ public class WindowAlertAction {
      Style for WindowAlertAction. All the styles that are supported in UIAlertAction are also supported here.
      */
     public private(set) var style: UIAlertAction.Style
+    
+    /**
+     Image for the action. Depends on Apple internal implementation, so it may stop working without notice on iOS update.
+     */
+    public private(set) var image: UIImage?
     
     fileprivate var action: ((WindowAlertAction) -> Void)?
 }
@@ -341,6 +354,8 @@ public class WindowAlert {
 
 fileprivate extension WindowAlertAction {
     
+    private static let imageKey = "image"
+    
     func asUiAlertAction(in windowAlert: WindowAlert) -> UIAlertAction {
         var selfReference: WindowAlert? = windowAlert
         
@@ -354,6 +369,13 @@ fileprivate extension WindowAlertAction {
             //now onto preventing retain cycle
             selfReference = nil
         }
+        
+        if alertAction.responds(to: Selector(WindowAlertAction.imageKey)) {
+            alertAction.setValue(image, forKey: WindowAlertAction.imageKey)
+        } else {
+            NSLog("%@", "Unfortunately, image could not be added to action. If you see this message, please contact the maintainer of WindowAlert.")
+        }
+        
         return alertAction
     }
     
