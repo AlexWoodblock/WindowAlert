@@ -72,12 +72,12 @@
                                                 <constraint firstItem="Rt4-kZ-g1T" firstAttribute="top" secondItem="Nt5-b6-k6y" secondAttribute="bottom" constant="8" id="TLI-oI-0Id"/>
                                                 <constraint firstItem="xvt-aJ-CZd" firstAttribute="top" secondItem="yeo-BN-6jv" secondAttribute="bottom" constant="16" id="Tir-0Y-4TN"/>
                                                 <constraint firstItem="Nt5-b6-k6y" firstAttribute="centerY" secondItem="HiS-yw-EMB" secondAttribute="centerY" id="X6A-SR-ThQ"/>
-                                                <constraint firstItem="xvt-aJ-CZd" firstAttribute="width" secondItem="Rt4-kZ-g1T" secondAttribute="width" id="Zrc-6k-7Rs"/>
+                                                <constraint firstItem="xvt-aJ-CZd" firstAttribute="leading" secondItem="Rt4-kZ-g1T" secondAttribute="leading" id="Y4J-B4-xdM"/>
+                                                <constraint firstItem="xvt-aJ-CZd" firstAttribute="trailing" secondItem="Rt4-kZ-g1T" secondAttribute="trailing" id="cgx-Fd-Je7"/>
                                                 <constraint firstItem="w8B-SD-yqw" firstAttribute="centerY" secondItem="yeo-BN-6jv" secondAttribute="centerY" id="e6V-5f-Fuy"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Rt4-kZ-g1T" secondAttribute="trailing" id="f1t-YW-9V9"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Rt4-kZ-g1T" secondAttribute="trailing" id="fBG-q4-47G"/>
                                                 <constraint firstItem="Nt5-b6-k6y" firstAttribute="leading" secondItem="HiS-yw-EMB" secondAttribute="leadingMargin" id="iZm-xA-aga"/>
-                                                <constraint firstItem="xvt-aJ-CZd" firstAttribute="leading" secondItem="Rt4-kZ-g1T" secondAttribute="leading" id="naw-xB-X7y"/>
                                                 <constraint firstItem="Nt5-b6-k6y" firstAttribute="top" secondItem="HiS-yw-EMB" secondAttribute="topMargin" constant="4" id="pYb-py-Qxm"/>
                                                 <constraint firstItem="Rt4-kZ-g1T" firstAttribute="centerY" secondItem="HiS-yw-EMB" secondAttribute="centerY" id="vWh-z4-BSR"/>
                                             </constraints>
@@ -120,6 +120,9 @@
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="This is a title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qZI-75-Bpt">
                                 <rect key="frame" x="66" y="764.5" width="110" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="Xl3-dY-FkK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -140,6 +143,9 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="This is a message" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WPw-xe-gPw">
                                 <rect key="frame" x="274" y="764.5" width="120" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="jjI-20-fW2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -149,7 +155,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uPf-5K-KRM">
                                 <rect key="frame" x="345" y="725.5" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide on tap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zo0-Rd-goj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide on tap outside" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zo0-Rd-goj">
                                 <rect key="frame" x="20" y="731" width="317" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -93,7 +93,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     }
     
     @IBAction func didChangeWindowAlertTitle(_ sender: UITextField) {
-        windowAlertTitle = sender.text
+        if sender.text?.isEmpty == true {
+            windowAlertTitle = nil
+        } else {
+            windowAlertTitle = sender.text
+        }
     }
     
     @IBAction func didChangeWindowAlertMessage(_ sender: UITextField) {
@@ -120,30 +124,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     }
     
     fileprivate func showWithStyle(_ style: UIAlertController.Style) {
-        if let title = windowAlertTitle {
-            if ViewController.useConvenienceInitializer {
-                guard let alert = WindowAlert(title: title, message: windowAlertMessage, preferredStyle: style) else {
-                    print("WindowAlert failed to init with UIWindow from app delegate, try using regular init")
-                    return
-                    
-                }
-                configureAlert(alert)
+        if ViewController.useConvenienceInitializer {
+            guard let alert = WindowAlert(title: windowAlertTitle, message: windowAlertMessage, preferredStyle: style) else {
+                print("WindowAlert failed to init with UIWindow from app delegate, try using regular init")
+                return
                 
-                let shown = alert.show()
-                print("Called WindowAlert.show(), result: " + (shown ? "true" : "false"))
-            } else {
-                guard let window = self.view.window else {
-                    print("self.view.window was nil, and thus can't init WindowAlert")
-                    return
-                }
-                
-                let alert = WindowAlert(title: title, message: windowAlertMessage, preferredStyle: style, referenceWindow: window)
-                configureAlert(alert)
-                
-                let shown = alert.show()
-                print("Called WindowAlert.show(), result: " + (shown ? "true" : "false"))
             }
+            configureAlert(alert)
+            
+            let shown = alert.show()
+            print("Called WindowAlert.show(), result: " + (shown ? "true" : "false"))
+        } else {
+            guard let window = self.view.window else {
+                print("self.view.window was nil, and thus can't init WindowAlert")
+                return
+            }
+            
+            let alert = WindowAlert(title: windowAlertTitle, message: windowAlertMessage, preferredStyle: style, referenceWindow: window)
+            configureAlert(alert)
+            
+            let shown = alert.show()
+            print("Called WindowAlert.show(), result: " + (shown ? "true" : "false"))
         }
+        
     }
     
     fileprivate func configureAlert(_ alert: WindowAlert) {
@@ -169,7 +172,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
                 titleAlignment: $0.alignment,
                 handler: { action in
                     print("Action \(action.id!) was clicked")
-                }
+            }
             ))
         }
     }
