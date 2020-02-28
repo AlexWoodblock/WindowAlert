@@ -7,7 +7,7 @@
 [![Swift Version](https://img.shields.io/badge/Swift-4.2-F16D39.svg?style=flat)](https://developer.apple.com/swift)
 [![Swift Version](https://img.shields.io/badge/Swift-5.0-F16D39.svg?style=flat)](https://developer.apple.com/swift)
 
-* Hate having providing `UIViewController` every time you need to show a dialog? 
+* Hate providing `UIViewController` every time you need to show a dialog? 
 * Have a stack of modal controllers, and figuring out which one is currently visible makes you groan? 
 * `-[UIAlertView show]` makes you feel nostalgic?
 
