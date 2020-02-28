@@ -13,12 +13,14 @@ class ActionInfo {
     var title: String?
     
     var style = UIAlertAction.Style.default
+    
+    var image: UIImage?
 }
 
 class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate, WindowAlertDelegate {
     
     //change this to see if app interaction changes when using convenience WindowAlert initializer that automatically pulls a reference window
-    static let useConvenienceInitializer = false
+    static let useConvenienceInitializer = true
     static let cellIdentifier = "WindowAlertPrefsCell"
     
     @IBOutlet var textFieldsCountLabel: UILabel!
@@ -32,11 +34,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     var windowAlertTitle: String? = "This is a title"
     var windowAlertMessage: String? = "This is a message"
     
-    @IBAction func didClickAddWindowAlertAction(_ sender: UIBarButtonItem) {
+    @IBAction func didClickAddWindowAlertAction() {
         let actionInfo = ActionInfo()
         actionInfo.title = "Action"
         actions.append(actionInfo)
         actionsTableView.reloadData()
+    }
+    
+    @IBAction func didClickAttributions() {
+        WindowAlert(title: "Attributions", message: "- Icon for action item was made by freepik: https://www.flaticon.com/authors/freepik", singleActionTitle: "OK").show()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,6 +57,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         
         cell.actionName.text = actionInfo.title
         cell.actionName.delegate = self
+        cell.enableImageSwitch.isOn = actionInfo.image != nil
         
         cell.boundActionInfo = actionInfo
         
@@ -140,8 +147,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
             index = index + 1
         }
         
-        actions.filter {$0.title != nil}.forEach {
-            alert.add(action: WindowAlertAction(title: $0.title!, style: $0.style, handler: nil))
+        actions.filter { $0.title != nil }.forEach {
+            alert.add(action: WindowAlertAction(
+                id: "ID_\($0.title!)",
+                title: $0.title!,
+                style: $0.style,
+                image: $0.image,
+                handler: { action in
+                    print("Action \(action.id!) was clicked")
+                }
+            ))
         }
     }
     

@@ -24,14 +24,16 @@ class WindowAlertActionPreferencesTableViewCell: UITableViewCell {
     
     @IBOutlet var actionName: UITextField!
     @IBOutlet var actionTypeSwitch: UISegmentedControl!
+    @IBOutlet var enableImageSwitch: UISwitch!
     
     var boundActionInfo: ActionInfo?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        actionName.addTarget(self, action: #selector(didChangeText), for: .editingChanged)
-        actionTypeSwitch.addTarget(self, action: #selector(didChangeType), for: .valueChanged)
+        actionName.addTarget(self, action: #selector(WindowAlertActionPreferencesTableViewCell.didChangeText), for: .editingChanged)
+        actionTypeSwitch.addTarget(self, action: #selector(WindowAlertActionPreferencesTableViewCell.didChangeType), for: .valueChanged)
+        enableImageSwitch.addTarget(self, action: #selector(WindowAlertActionPreferencesTableViewCell.didChangeImageEnabled), for: .valueChanged)
     }
     
     @objc func didChangeText() {
@@ -40,6 +42,10 @@ class WindowAlertActionPreferencesTableViewCell: UITableViewCell {
     
     @objc func didChangeType() {
         boundActionInfo?.style = WindowAlertActionPreferencesTableViewCell.segmentStyleMap[actionTypeSwitch.selectedSegmentIndex]!
+    }
+    
+    @objc func didChangeImageEnabled() {
+        boundActionInfo?.image = enableImageSwitch.isOn ? UIImage(named: "ActionItem") : nil
     }
     
 }
