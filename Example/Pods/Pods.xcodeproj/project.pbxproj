@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1268096C3F2FC5C9F9E628B7DDA081C7 /* TapAwareWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE69F3EE232481D619C754E157CD1C /* TapAwareWindow.swift */; };
 		4F2988F7379D3D2AE2F95311DA73C489 /* Pods-WindowAlert_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD38C086314A8B7108E550BC472FF43 /* Pods-WindowAlert_Example-dummy.m */; };
-		526A3A6CEE11C21C7245FCA9094354D3 /* CommonWindowAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE394646A7950380DA83B7CCE6280DC /* CommonWindowAlerts.swift */; };
+		526A3A6CEE11C21C7245FCA9094354D3 /* WindowAlertConvenienceInits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE394646A7950380DA83B7CCE6280DC /* WindowAlertConvenienceInits.swift */; };
 		60735EF24940F3D8BFBEBB9D5CCC4ED2 /* Pods-WindowAlert_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B9B4778C0366DE2E9CCD6BE54B2F9D2C /* Pods-WindowAlert_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6A862BD3A56698980457BE676819FB42 /* WindowAlert-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3168602759D7F995122095B69479BDB1 /* WindowAlert-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7164800F0767CD7ABA3B27B52E8A3FB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D635D41133915B228CE899EF89DD95CE /* Foundation.framework */; };
@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		01E8699861F8931E3E81C34EC1D32AEF /* Pods-WindowAlert_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-WindowAlert_Example.modulemap"; sourceTree = "<group>"; };
-		0AE394646A7950380DA83B7CCE6280DC /* CommonWindowAlerts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CommonWindowAlerts.swift; sourceTree = "<group>"; };
+		0AE394646A7950380DA83B7CCE6280DC /* WindowAlertConvenienceInits.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WindowAlertConvenienceInits.swift; sourceTree = "<group>"; };
 		1A40DFA0259A3DA5FB0AF051DC247EA7 /* WindowAlert.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WindowAlert.xcconfig; sourceTree = "<group>"; };
 		27F7463D92C86A30EA87F87B403CF919 /* Pods_WindowAlert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WindowAlert_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3168602759D7F995122095B69479BDB1 /* WindowAlert-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WindowAlert-umbrella.h"; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 		FAF248EB440BB11C3BEB31D05DDF99CA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				0AE394646A7950380DA83B7CCE6280DC /* CommonWindowAlerts.swift */,
+				0AE394646A7950380DA83B7CCE6280DC /* WindowAlertConvenienceInits.swift */,
 				FABE69F3EE232481D619C754E157CD1C /* TapAwareWindow.swift */,
 				B9739725CE590E109BB76E157C555098 /* WindowAlert.swift */,
 			);
@@ -288,7 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				526A3A6CEE11C21C7245FCA9094354D3 /* CommonWindowAlerts.swift in Sources */,
+				526A3A6CEE11C21C7245FCA9094354D3 /* WindowAlertConvenienceInits.swift in Sources */,
 				1268096C3F2FC5C9F9E628B7DDA081C7 /* TapAwareWindow.swift in Sources */,
 				8A9E7B80D32F33CEE14A0055BBA95F7A /* WindowAlert-dummy.m in Sources */,
 				EFC77BD84CFF61045238AEDF534328DF /* WindowAlert.swift in Sources */,

@@ -49,22 +49,11 @@ public class WindowAlertAction {
      - parameter handler: Action to execute when action button will be selected.
      - returns: New WindowAlertAction object.
      */
-    public init(id: String?, title: String, style: UIAlertAction.Style, handler: ((WindowAlertAction) -> Void)?) {
+    public init(id: String? = nil, title: String, style: UIAlertAction.Style, handler: ((WindowAlertAction) -> Void)?) {
         self.id = id
         self.title = title
         self.style = style
         self.action = handler
-    }
-    
-    /**
-     Creates and returns action with specified title, style and action handler, but without identifier.
-     - parameter title: Text that will be displayed on action button. Must be localized.
-     - parameter style: Action button style.
-     - parameter handler: Action to execute when action button will be selected.
-     - returns: New WindowAlertAction object.
-     */
-    public convenience init(title: String, style: UIAlertAction.Style, handler: ((WindowAlertAction) -> Void)?) {
-        self.init(id: nil, title: title, style: style, handler: handler)
     }
     
     /**
@@ -223,45 +212,6 @@ public class WindowAlert {
         storedMessage = message
         internalWindowFrame = frame
         internalWindowTintColor = tintColor
-    }
-    
-    /**
-     Creates and returns new alert with specified title, message, style and reference window.
-     - parameter title: Title for the alert.
-     - parameter message: Message for the alert.
-     - parameter preferredStyle: Preferred style for the alert.
-     - parameter referenceWindow: Window to inherit size and tint color from.
-     - returns: New WindowAlert object.
-     */
-    public convenience init(title: String, message: String?, preferredStyle: UIAlertController.Style, referenceWindow: UIWindow) {
-        
-        let tint: UIColor? = referenceWindow.tintColor //workaround for cases when referenceWindow.tintColor is nil
-        
-        self.init(title: title, message: message, preferredStyle: preferredStyle, tintColor: tint, frame: referenceWindow.frame)
-    }
-    
-    /**
-     Tries to create and returns new alert with specified title, message, style and main application window
-     taken from app delegate as reference window. May fail if main application window or app delegate is missing.
-     - parameter title: Title for the alert.
-     - parameter message: Message for the alert.
-     - parameter preferredStyle: Preferred style for the alert.
-     - returns: New WindowAlert object or nil if app delegate or main window is missing.
-     */
-    public convenience init?(title: String, message: String?, preferredStyle: UIAlertController.Style) {
-        guard let delegate = UIApplication.shared.delegate else {
-            return nil
-        }
-        
-        guard let windowPresent = delegate.window else {
-            return nil
-        }
-        
-        guard let window = windowPresent else {
-            return nil
-        }
-        
-        self.init(title: title, message: message, preferredStyle: preferredStyle, referenceWindow: window)
     }
     
     private func createNewWindow() {
