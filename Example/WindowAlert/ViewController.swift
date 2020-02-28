@@ -125,11 +125,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     
     fileprivate func showWithStyle(_ style: UIAlertController.Style) {
         if ViewController.useConvenienceInitializer {
-            guard let alert = WindowAlert(title: windowAlertTitle, message: windowAlertMessage, preferredStyle: style) else {
-                print("WindowAlert failed to init with UIWindow from app delegate, try using regular init")
-                return
-                
-            }
+            let alert = WindowAlert(title: windowAlertTitle, message: windowAlertMessage, preferredStyle: style)
             configureAlert(alert)
             
             let shown = alert.show()
