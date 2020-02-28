@@ -3,8 +3,9 @@
 [![Version](https://img.shields.io/cocoapods/v/WindowAlert.svg?style=flat)](http://cocoapods.org/pods/WindowAlert)
 [![License](https://img.shields.io/cocoapods/l/WindowAlert.svg?style=flat)](http://cocoapods.org/pods/WindowAlert)
 [![Platform](https://img.shields.io/cocoapods/p/WindowAlert.svg?style=flat)](http://cocoapods.org/pods/WindowAlert)
-[![Swift Version](https://img.shields.io/badge/Swift-2.2-F16D39.svg?style=flat)](https://developer.apple.com/swift)
-[![Swift Version](https://img.shields.io/badge/Swift-3.0-F16D39.svg?style=flat)](https://developer.apple.com/swift)
+[![Swift Version](https://img.shields.io/badge/Swift-4.0-F16D39.svg?style=flat)](https://developer.apple.com/swift)
+[![Swift Version](https://img.shields.io/badge/Swift-4.2-F16D39.svg?style=flat)](https://developer.apple.com/swift)
+[![Swift Version](https://img.shields.io/badge/Swift-5.0-F16D39.svg?style=flat)](https://developer.apple.com/swift)
 
 * Hate having providing `UIViewController` every time you need to show a dialog? 
 * Have a stack of modal controllers, and figuring out which one is currently visible makes you groan? 
