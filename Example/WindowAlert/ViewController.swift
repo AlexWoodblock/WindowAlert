@@ -65,7 +65,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if(editingStyle == .delete) {
+        if editingStyle == .delete {
             actions.remove(at: (indexPath as NSIndexPath).row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }

@@ -22,13 +22,13 @@ public protocol WindowAlertDelegate {
     /**
      Tells the delegate that alert will soon be hidden.
      - parameter windowAlert: alert to be hidden.
-    */
+     */
     func windowAlertWillHide(windowAlert alert: WindowAlert)
     
     /**
      Tells the delegate that alert was hidden.
      - parameter windowAlert: alert that was hidden.
-    */
+     */
     func windowAlertDidHide(windowAlert alert: WindowAlert)
 }
 
@@ -126,7 +126,7 @@ public class WindowAlert {
     
     /**
      Alert delegate that will receive reports for this alert visibility.
-    */
+     */
     public var delegate: WindowAlertDelegate?
     
     private var textFieldConfigurationHandlers: [((UITextField) -> Void)?]
@@ -272,22 +272,21 @@ public class WindowAlert {
         internalWindow!.windowLevel = windowLevel
         internalWindow!.rootViewController = rootViewController
         
-        var strongSelf: WindowAlert? = self //this is needed to keep reference to self inside of closure until it's called
+        var clearableStrongSelf: WindowAlert? = self //this is needed to keep reference to self inside of closure until it's called
         internalWindow!.actionOnTap = { touch in
-            if let s = strongSelf {
-                if(s.hideOnTapOutside) {
-                    
-                    guard let controller = s.alertController else {
-                        s.hide()
-                        return
-                    }
-                    
-                    let locationInView = touch.location(in: nil) //pass nil to get location in window
-                    if(!controller.view.frame.contains(locationInView)) {
-                        s.hide()
-                        strongSelf = nil
-                    }
-                }
+            guard let strongSelf = clearableStrongSelf, strongSelf.hideOnTapOutside else {
+                return
+            }
+            
+            guard let controller = strongSelf.alertController else {
+                strongSelf.hide()
+                return
+            }
+            
+            let locationInView = touch.location(in: nil) //pass nil to get location in window
+            if !controller.view.frame.contains(locationInView) {
+                strongSelf.hide()
+                clearableStrongSelf = nil
             }
         }
     }
@@ -312,7 +311,7 @@ public class WindowAlert {
      */
     @discardableResult
     public func show() -> Bool {
-        if(visible) {
+        if visible {
             return false
         }
         
@@ -321,8 +320,7 @@ public class WindowAlert {
         createNewWindow()
         createAlertController()
         
-        //at this point alertController is not nil thanks to ensureAlertController(), so it's safe to unwrap alertController
-        //it's also safe to unwrap rootViewController, thanks to ensureWindowIfPossible()
+        //at this point alertController is not nil thanks to createAlertController(), so it's safe to unwrap alertController
         //and it's also safe to unwrap internalWindow, since createNewWindow() takes care of it's creation
         internalWindow!.makeKeyAndVisible()
         internalWindow!.rootViewController!.present(alertController!, animated: true, completion: {
@@ -340,7 +338,7 @@ public class WindowAlert {
     @discardableResult
     public func hide() -> Bool {
         //if WindowAlert is already hidden, no need to proceed
-        if(!visible) {
+        if !visible {
             return false
         }
         
@@ -351,13 +349,7 @@ public class WindowAlert {
         delegate?.windowAlertWillHide(windowAlert: self)
         
         window.rootViewController!.dismiss(animated: true, completion: {
-            //removing window from window hierarchy, and getting rid of unnecessary resources
-            window.isHidden = true
-            window.removeFromSuperview()
-            window.actionOnTap = nil
-            self.internalWindow = nil
-            self.alertController = nil
-            self.delegate?.windowAlertDidHide(windowAlert: self)
+            self.onHide()
         })
         
         return true
@@ -384,6 +376,17 @@ public class WindowAlert {
         textFieldConfigurationHandlers.append(configurationHandler)
         alertController?.addTextField(configurationHandler: configurationHandler)
     }
+    
+    fileprivate func onHide() {
+        internalWindow?.isHidden = true
+        internalWindow?.removeFromSuperview()
+        internalWindow?.actionOnTap = nil
+        internalWindow = nil
+        
+        alertController = nil
+        
+        delegate?.windowAlertDidHide(windowAlert: self)
+    }
 }
 
 fileprivate extension WindowAlertAction {
@@ -396,16 +399,7 @@ fileprivate extension WindowAlertAction {
             actualAction?(self)
             
             //no need to dismiss UIAlertController, as it's automatically dismissed
-            //removing window from window hierarchy, and getting rid of unnecessary resources
-            selfReference?.internalWindow?.isHidden = true
-            selfReference?.internalWindow?.removeFromSuperview()
-            selfReference?.internalWindow?.actionOnTap = nil
-            selfReference?.internalWindow = nil
-            selfReference?.alertController = nil
-            
-            if let selfStrongReference = selfReference {
-                selfStrongReference.delegate?.windowAlertDidHide(windowAlert: selfStrongReference)
-            }
+            selfReference?.onHide()
             
             //now onto preventing retain cycle
             selfReference = nil
