@@ -9,7 +9,7 @@
 
 * Hate having providing `UIViewController` every time you need to show a dialog? 
 * Have a stack of modal controllers, and figuring out which one is currently visible makes you groan? 
-* `UIAlertView.show()` makes you feel nostalgic?
+* `-[UIAlertView show]` makes you feel nostalgic?
 
 This library is a solution for all of these things! 
 
