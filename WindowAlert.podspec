@@ -22,4 +22,6 @@ WindowAlert is a class that helps you handle the presentation of UIAlertControll
   s.source_files = 'WindowAlert/Classes/**/*'
 
   s.frameworks = 'UIKit'
+  
+  s.swift_versions = ['4.0', '4.2', '5.0']
 end
