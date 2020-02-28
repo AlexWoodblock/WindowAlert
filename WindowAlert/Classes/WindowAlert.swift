@@ -44,7 +44,6 @@ public protocol WindowAlertDelegate {
  This class is not thread-safe, calling it's method from threads different from main one will lead
  to weird and buggy behavior.
  */
-// TODO: make title optional
 public class WindowAlert {
     
     /**
