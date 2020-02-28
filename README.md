@@ -6,14 +6,26 @@
 [![Swift Version](https://img.shields.io/badge/Swift-2.2-F16D39.svg?style=flat)](https://developer.apple.com/swift)
 [![Swift Version](https://img.shields.io/badge/Swift-3.0-F16D39.svg?style=flat)](https://developer.apple.com/swift)
 
-WindowAlert is a class that helps you handle the presentation of UIAlertController. It creates separate UIWindow with transparent UIViewController, and presents it on top of that UIViewController, so you don't have to worry about looking for a view controller to present your UIAlertController on.
+* Hate having providing `UIViewController` every time you need to show a dialog? 
+* Have a stack of modal controllers, and figuring out which one is currently visible makes you groan? 
+* `UIAlertView.show()` makes you feel nostalgic?
 
+This library is a solution for all of these things! 
+
+While introducing unified sheet and dialog controller was a great decision, making it a presentable view controller was a shoot and miss on Apple side (Android Fragment dialogs, hi!).
+
+To achieve simplicity of `UIAlertView`, this library creates a separate window on top of everything with transparent root view controller, and presents your alert controller in said window. You just need to set up `WindowAlert`, and then showing your dialog is as simple as calling `show()` on your alert instance!
+
+This library will help 
+// TODO: example!
+// TODO: features
+// TODO: potential problems
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
-Swift 3.0 must be used in the project.
+Swift 5.0 must be used in the project.
 
 ## Installation
 
@@ -21,12 +33,32 @@ WindowAlert is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'WindowAlert', '~> 2.0.0'
+pod 'WindowAlert', '~> 2.1.0'
 ```
+
+## Usage
+The usage  is quite simple and for most parts it mimicks `UIAlertController` APIs.
+
+The following piece of code will create alert dialog with one text field, title, message and one action:
+```Swift
+let alert = WindowAlert(title: "This is a title", message: "This is a message", preferredStyle: .alert)
+
+alert.addTextField { textField in
+  textField.text = "I'm a text field inside WindowAlert!"
+}
+
+alert.add(action: WindowAlertAction(
+                title: "Got it!",
+                style: .default))
+
+alert.show()
+```
+
 
 ## Author
 
-Alexander, wryyy906@gmail.com
+Alexander Leontev,
+alexwoodblock@icloud.com
 
 ## License
 
