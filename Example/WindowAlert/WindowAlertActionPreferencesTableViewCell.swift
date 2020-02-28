@@ -10,8 +10,17 @@ import UIKit
 
 class WindowAlertActionPreferencesTableViewCell: UITableViewCell {
     
-    static let segmentStyleMap = [0 : UIAlertActionStyle.default, 1 : UIAlertActionStyle.cancel, 2 : UIAlertActionStyle.destructive]
-    static let styleSegmentMap = [UIAlertActionStyle.default : 0, UIAlertActionStyle.cancel : 1, UIAlertActionStyle.destructive : 2]
+    static let segmentStyleMap = [
+        0 : UIAlertAction.Style.default,
+        1 : UIAlertAction.Style.cancel,
+        2 : UIAlertAction.Style.destructive
+    ]
+    
+    static let styleSegmentMap = [
+        UIAlertAction.Style.default : 0,
+        UIAlertAction.Style.cancel : 1,
+        UIAlertAction.Style.destructive : 2
+    ]
     
     @IBOutlet var actionName: UITextField!
     @IBOutlet var actionTypeSwitch: UISegmentedControl!
@@ -25,11 +34,11 @@ class WindowAlertActionPreferencesTableViewCell: UITableViewCell {
         actionTypeSwitch.addTarget(self, action: #selector(didChangeType), for: .valueChanged)
     }
     
-    func didChangeText() {
+    @objc func didChangeText() {
         boundActionInfo?.title = actionName.text
     }
     
-    func didChangeType() {
+    @objc func didChangeType() {
         boundActionInfo?.style = WindowAlertActionPreferencesTableViewCell.segmentStyleMap[actionTypeSwitch.selectedSegmentIndex]!
     }
     

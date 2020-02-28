@@ -12,7 +12,7 @@ import WindowAlert
 class ActionInfo {
     var title: String?
     
-    var style = UIAlertActionStyle.default
+    var style = UIAlertAction.Style.default
 }
 
 class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate, WindowAlertDelegate {
@@ -64,7 +64,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if(editingStyle == .delete) {
             actions.remove(at: (indexPath as NSIndexPath).row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -99,7 +99,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         showWithStyle(.alert)
     }
     
-    fileprivate func showWithStyle(_ style: UIAlertControllerStyle) {
+    fileprivate func showWithStyle(_ style: UIAlertController.Style) {
         if let msg = windowAlertMessage, let title = windowAlertTitle {
             if ViewController.useConvenienceInitializer {
                 guard let alert = WindowAlert(title: title, message: msg, preferredStyle: style) else {
