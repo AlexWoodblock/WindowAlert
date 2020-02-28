@@ -198,8 +198,8 @@ public class WindowAlert {
         }
     }
     
-    private var internalWindow: TapAwareWindow?
-    private var alertController: UIAlertController?
+    fileprivate var internalWindow: TapAwareWindow?
+    fileprivate var alertController: UIAlertController?
     private let rootViewController = UIViewController()
     
     private var internalWindowTintColor: UIColor?
@@ -297,7 +297,7 @@ public class WindowAlert {
         
         //safe to unwrap since we just created it
         for action in actions {
-            alertController!.addAction(convertWindowAlertViewActionToAlertControllerAction(windowAlertViewAction: action))
+            alertController!.addAction(action.asUiAlertAction(in: self))
         }
         
         for textFieldConfigurationHandler in textFieldConfigurationHandlers {
@@ -370,17 +370,30 @@ public class WindowAlert {
      - parameter action: Action to add to the alert.
      */
     public func add(action: WindowAlertAction) {
-        let alertAction = convertWindowAlertViewActionToAlertControllerAction(windowAlertViewAction: action)
+        let alertAction = action.asUiAlertAction(in: self)
         actions.append(action)
         alertController?.addAction(alertAction)
     }
     
-    private func convertWindowAlertViewActionToAlertControllerAction(windowAlertViewAction action: WindowAlertAction) -> UIAlertAction {
-        var selfReference: WindowAlert? = self
-        let actualAction = action.action
-        let alertAction = UIAlertAction(title: action.title, style: action.style) { _ in
-            actualAction?(action)
-            
+    /**
+     Adds a text field to an alert.
+     - parameter configurationHandler: Action to be invoked with UITextField as argument before
+     showing alert to the user. Use this action to configure UITextField parameters.
+     */
+    public func addTextField(configurationHandler: ((UITextField) -> Void)?) {
+        textFieldConfigurationHandlers.append(configurationHandler)
+        alertController?.addTextField(configurationHandler: configurationHandler)
+    }
+}
+
+fileprivate extension WindowAlertAction {
+    
+    func asUiAlertAction(in windowAlert: WindowAlert) -> UIAlertAction {
+        var selfReference: WindowAlert? = windowAlert
+        
+        let actualAction = action
+        let alertAction = UIAlertAction(title: title, style: style) { _ in
+            actualAction?(self)
             
             //no need to dismiss UIAlertController, as it's automatically dismissed
             //removing window from window hierarchy, and getting rid of unnecessary resources
@@ -400,13 +413,4 @@ public class WindowAlert {
         return alertAction
     }
     
-    /**
-     Adds a text field to an alert.
-     - parameter configurationHandler: Action to be invoked with UITextField as argument before
-     showing alert to the user. Use this action to configure UITextField parameters.
-     */
-    public func addTextField(configurationHandler: ((UITextField) -> Void)?) {
-        textFieldConfigurationHandlers.append(configurationHandler)
-        alertController?.addTextField(configurationHandler: configurationHandler)
-    }
 }
