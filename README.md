@@ -16,16 +16,12 @@ While introducing unified sheet and dialog controller was a great decision, maki
 
 To achieve simplicity of `UIAlertView`, this library creates a separate window on top of everything with transparent root view controller, and presents your alert controller in said window. You just need to set up `WindowAlert`, and then showing your dialog is as simple as calling `show()` on your alert instance!
 
-This library will help 
-// TODO: example!
-// TODO: features
-// TODO: potential problems
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
-Swift 5.0 must be used in the project.
+Swift 4.0, 4.2 or 5.0 must be used in the project.
 
 ## Installation
 
@@ -33,7 +29,7 @@ WindowAlert is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'WindowAlert', '~> 2.1.0'
+pod 'WindowAlert', '~> 3.0.0'
 ```
 
 ## Usage
@@ -53,6 +49,32 @@ alert.add(action: WindowAlertAction(
 
 alert.show()
 ```
+This code can be called anywhere - no need to pass `UIViewController`s to present it on.
+
+## Additional bonus features
+* Set alignment of alert action:
+```swift
+WindowAlertAction(
+                title: "Got it!",
+                style: .default,
+                titleAlignment: .left)
+```
+
+* Add image to alert action:
+```swift
+WindowAlertAction(
+                title: "Got it!",
+                style: .default,
+                image: UIImage(named: "someImage"))
+```
+
+* Dismiss alert on tap outside:
+```swift
+let alert = WindowAlert(title: "This is a title", message: "This is a message", preferredStyle: .alert)
+alert.hideOnTapOutside = true
+```
+
+Warning: images and title alignment are based on Apple internal implementation, and they may break without notice after iOS update. If you find it broke after an update, please let me know and I will issue an update ASAP.
 
 
 ## Author
