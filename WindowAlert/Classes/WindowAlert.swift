@@ -33,61 +33,6 @@ public protocol WindowAlertDelegate {
 }
 
 /**
- WindowAlertAction describes single action that will be shown in WindowAlert.
- This objects describes action configuration, such as title of the action,
- it's style and behavior when tapping on button corresponding to this action.
- Please note that you must not call WindowAlert hide() method in WindowAlertAction handler,
- as WindowAlert will be hidden automatically after action invocation.
- */
-public struct WindowAlertAction {
-    
-    /**
-     Creates and returns action with specified indentifier, title, style and action handler.
-     - parameter id: Unique identifier for current action.
-     - parameter title: Text that will be displayed on action button. Must be localized.
-     - parameter style: Action button style.
-     - parameter handler: Action to execute when action button will be selected.
-     - parameter image: Image for the action. Depends on Apple internal implementation, so it may stop working without notice on iOS update.
-     - returns: New WindowAlertAction object.
-     */
-    public init(
-        id: String? = nil,
-        title: String,
-        style: UIAlertAction.Style,
-        image: UIImage? = nil,
-        handler: ((WindowAlertAction) -> Void)? = nil
-    ) {
-        self.id = id
-        self.title = title
-        self.style = style
-        self.image = image
-        self.action = handler
-    }
-    
-    /**
-     Unique string identifier for this action.
-     */
-    public private(set) var id: String?
-    
-    /**
-     Title that will be displayed on corresponding button.
-     */
-    public private(set) var title: String
-    
-    /**
-     Style for WindowAlertAction. All the styles that are supported in UIAlertAction are also supported here.
-     */
-    public private(set) var style: UIAlertAction.Style
-    
-    /**
-     Image for the action. Depends on Apple internal implementation, so it may stop working without notice on iOS update.
-     */
-    public private(set) var image: UIImage?
-    
-    fileprivate var action: ((WindowAlertAction) -> Void)?
-}
-
-/**
  WindowAlert is a helper object that wraps UIAlertController and UIWindow classes to simplify UIAlertController presentation logic.
  It creates new UIWindow at UIWindowLevelAlert window level(or another one,
  if you wish to redefine it via defaultWindowLevel property of WindowAlert class),
@@ -99,6 +44,7 @@ public struct WindowAlertAction {
  This class is not thread-safe, calling it's method from threads different from main one will lead
  to weird and buggy behavior.
  */
+// TODO: make title optional
 public class WindowAlert {
     
     /**
@@ -325,9 +271,11 @@ public class WindowAlert {
      - parameter action: Action to add to the alert.
      */
     public func add(action: WindowAlertAction) {
-        let alertAction = action.asUiAlertAction(in: self)
         actions.append(action)
-        alertController?.addAction(alertAction)
+        
+        if let alertController = alertController {
+            alertController.addAction(action.asUiAlertAction(in: self))
+        }
     }
     
     /**
@@ -355,6 +303,7 @@ public class WindowAlert {
 fileprivate extension WindowAlertAction {
     
     private static let imageKey = "image"
+    private static let titleTextAlignmentKey = "_titleTextAlignment"
     
     func asUiAlertAction(in windowAlert: WindowAlert) -> UIAlertAction {
         var selfReference: WindowAlert? = windowAlert
@@ -370,10 +319,20 @@ fileprivate extension WindowAlertAction {
             selfReference = nil
         }
         
-        if alertAction.responds(to: Selector(WindowAlertAction.imageKey)) {
-            alertAction.setValue(image, forKey: WindowAlertAction.imageKey)
-        } else {
-            NSLog("%@", "Unfortunately, image could not be added to action. If you see this message, please contact the maintainer of WindowAlert.")
+        if let image = image {
+            if alertAction.responds(to: Selector(WindowAlertAction.imageKey)) {
+                alertAction.setValue(image, forKey: WindowAlertAction.imageKey)
+            } else {
+                NSLog("%@", "Unfortunately, image could not be added to action. If you see this message, please contact the maintainer of WindowAlert.")
+            }
+        }
+        
+        if let titleAlignment = titleAlignment {
+            if alertAction.responds(to: Selector(WindowAlertAction.titleTextAlignmentKey)) {
+                alertAction.setValue(titleAlignment.rawValue, forKey: WindowAlertAction.titleTextAlignmentKey)
+            } else {
+                NSLog("%@", "Unfortunately, title text alignment could not be applied to action. If you see this message, please contact the maintainer of WindowAlert.")
+            }
         }
         
         return alertAction
